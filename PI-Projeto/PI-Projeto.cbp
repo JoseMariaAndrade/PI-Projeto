@@ -31,10 +31,26 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="encomenda.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="encomenda.h" />
 		<Unit filename="estruturas.h" />
+		<Unit filename="funcoesAuxiliares.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="funcoesAuxiliares.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
+		<Unit filename="veiculo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="veiculo.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
