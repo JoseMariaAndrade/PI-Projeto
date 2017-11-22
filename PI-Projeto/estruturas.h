@@ -7,43 +7,41 @@
 #define DESTINO 50
 #define OBSERVACOES 100
 
-/*enum estadoVeiculo {
-    "Disponivel",
-    "A Transportar",
-    "De Regresso",
-    "Avariado"
+enum estadoVeiculo
+{
+    disponivel,
+    transportar,
+    regresso,
+    avariado
 };
 
-enum estadoEncomenda {
-    registada = "Registada",
-    "Carregada",
-    "Entregue",
-    "Devolvida"
+enum estadoEncomenda
+{
+    registada,
+    carregada,
+    entregue,
+    devolvida
 };
-*/
-typedef struct{
+
+typedef struct
+{
     int dia, mes, ano;
-}tipoData;
+} tipoData;
 
-/*typedef enum {
-    "Registada",
-    "Carregada",
-    "Entregue",
-    "Devolvida"
-}estadoEncomenda;*/
-
-typedef struct{
+typedef struct
+{
     int carga, viagens, encomendas;
     char matricula[MATRICULA];
     tipoData dataFabrico;
-    //enum estadoVeiculo estado;
-}tipoVeiculo;
+    enum estadoVeiculo estado;
+} tipoVeiculo;
 
-typedef struct{
+typedef struct
+{
     int numero, peso;
     tipoData dataRegisto, dataEntrega, dataDevolucao;
     char destino[DESTINO], observacoes[OBSERVACOES];
-    //estadoEncomenda estado;
-}tipoEncomenda;
+    enum estadoEncomenda estado;
+} tipoEncomenda;
 
 #endif // ESTRUTURAS_H_INCLUDED
