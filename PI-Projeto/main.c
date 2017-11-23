@@ -11,7 +11,7 @@ int main()
     tipoEncomenda encomendas[MAX_ENCOMENDAS];
     int nVeiculos, nEcomendasRegistadas, nEcomendasDevolvidas;
     float percEcomendasEntregues;
-    char opcao;
+    char opcao, opcao1;
 
     veiculos[0] = adicionarVeiculos();
 
@@ -19,7 +19,25 @@ int main()
         opcao = menuPrincipal(nVeiculos, nEcomendasRegistadas, percEcomendasEntregues, nEcomendasDevolvidas);
         switch(opcao){
             case 'V':
-                //menu para controlo de ecomendas/veiculos(adicionar/remover/etc)
+                //menu admin que dá acesso ao registo
+                do{
+                    opcao1 = menuAdmin();
+                    switch(opcao1){
+
+                        //faltam alguns cases mas ainda nao sei se vou fazer dois menus (um de registo e outro de leitura)
+
+                        case 'C':
+                            break;
+                        case 'I':
+                            break;
+                        case 'R':
+                            break;
+                        case 'D':
+                            break;
+                        case 'V':
+                            break;
+                    }
+                }while(opcao1 != 'V');
                 break;
             case 'S':
                 //stats sobre a empresa(ecomendas/veiculos)
