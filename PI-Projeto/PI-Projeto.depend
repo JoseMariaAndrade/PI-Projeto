@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1511394025 source:c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\encomenda.c
+
+1511394025 source:c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\funcoesauxiliares.c
+	<stdio.h>
+	"funcoesAuxiliares.h"
+
+1511394025 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\funcoesauxiliares.h
+
+1511394143 source:c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\main.c
+	<stdio.h>
+	<stdlib.h>
+	"estruturas.h"
+	"menu.h"
+	"veiculo.h"
+
+1511394025 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\estruturas.h
+
+1511396182 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\menu.h
+
+1511394025 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\veiculo.h
+	"estruturas.h"
+
+1511396109 source:c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\menu.c
+	<stdio.h>
+	<ctype.h>
+	"funcoesAuxiliares.h"
+	"menu.h"
+
+1511394025 source:c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\veiculo.c
+	<stdio.h>
+	"veiculo.h"
+	"estruturas.h"
+	"funcoesAuxiliares.h"
+
