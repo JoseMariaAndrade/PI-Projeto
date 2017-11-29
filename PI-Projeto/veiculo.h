@@ -3,6 +3,7 @@
 
 #include "estruturas.h"
 
-tipoVeiculo adicionarVeiculos();
+void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos);
+void mostrarVeiculos(tipoVeiculo[], int nVeiculos);
 
 #endif // VEICULO_H_INCLUDED
