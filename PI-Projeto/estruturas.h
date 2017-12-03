@@ -15,13 +15,13 @@
     avariado
 } estadoVeiculo;
 
-enum estadoEncomenda
+typedef enum
 {
     registada,
     carregada,
     entregue,
     devolvida
-};
+} estadoEncomenda;
 
 typedef struct
 {
@@ -41,7 +41,7 @@ typedef struct
     int numero, peso;
     tipoData dataRegisto, dataEntrega, dataDevolucao;
     char destino[DESTINO], observacoes[OBSERVACOES];
-    enum estadoEncomenda estado;
+    estadoEncomenda estado;
 } tipoEncomenda;
 
 #endif // ESTRUTURAS_H_INCLUDED

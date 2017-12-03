@@ -12,6 +12,7 @@ int lerInteiro(char mensagem[MAX_CHARS], int numeroMinimo, int numeroMaximo);
 tipoData lerData(char mensagem[MAX_CHARS]);
 void lerString(char mensagem[MAX_CHARS], char vetorChars[50], int maximoCaracteres);
 int lerEstado(char tipoEstado);
-void gravarFicheiroTexto(tipoVeiculo veiculos[MAX_VEICULOS], tipoEncomenda encomendas[MAX_ENCOMENDAS], int nVeiculos, int nEncomendas);
+void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas);
+void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas);
 
 #endif // FUNCOESAUXILIARES_H_INCLUDED

@@ -8,7 +8,19 @@ int lerInteiro(char mensagem[MAX_CHARS], int numeroMinimo, int numeroMaximo)
     int numero, controlo;
     if(numeroMinimo==numeroMaximo)
     {
-        printf("\n");
+        do
+        {
+            printf("%s:", mensagem);
+            controlo = scanf("%d",&numero);
+
+            limparBufferStdin();
+
+            if (controlo == 0)
+            {
+                printf("\nNumero invalido.");
+            }
+        }
+        while (controlo==0);
     }
     else
     {
@@ -142,7 +154,7 @@ void limparBufferStdin()
  *
  */
 
-void gravarFicheiroTexto(tipoVeiculo veiculos[MAX_VEICULOS], tipoEncomenda encomendas[MAX_ENCOMENDAS], int nVeiculos, int nEncomendas)
+void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas)
 {
     FILE *file;
     int i;
@@ -153,13 +165,65 @@ void gravarFicheiroTexto(tipoVeiculo veiculos[MAX_VEICULOS], tipoEncomenda encom
     }
     else
     {
+        fprintf(file,"%d\n",nVeiculos);
+        fprintf(file,"%d\n",nEncomendas);
         for(i=0; i<nVeiculos; i++)
         {
-            fprintf(file,"%s",veiculos[i].matricula);
-            fprintf(file,"%d-%d-%d",veiculos[i].dataFabrico.dia,veiculos[i].dataFabrico.mes,veiculos[i].dataFabrico.ano);
-            fprintf(file,"%d",veiculos[i].carga);
-            fprintf(file,"%d",veiculos[i].viagens);
-            fprintf(file,"%d",veiculos[i].encomendas);
+            fprintf(file,"%s\n",veiculos[i].matricula);
+            fprintf(file,"%d-%d-%d\n",veiculos[i].dataFabrico.dia,veiculos[i].dataFabrico.mes,veiculos[i].dataFabrico.ano);
+            fprintf(file,"%d\n",veiculos[i].carga);
+            fprintf(file,"%d\n",veiculos[i].viagens);
+            fprintf(file,"%d\n",veiculos[i].encomendas);
+        }
+
+        for(i=0; i<nEncomendas; i++)
+        {
+            fprintf(file,"%d\n",encomendas[i].numero);
+            fprintf(file,"%d\n",encomendas[i].peso);
+            fprintf(file,"%d\n",encomendas[i].estado);
+            fprintf(file,"%s\n",encomendas[i].destino);
+            fprintf(file,"%d-%d-%d\n",encomendas[i].dataRegisto.dia,encomendas[i].dataRegisto.mes,encomendas[i].dataRegisto.ano);
+            fprintf(file,"%d-%d-%d\n",encomendas[i].dataEntrega.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano);
+            fprintf(file,"%d-%d-%d\n",encomendas[i].dataDevolucao.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano);
+            fprintf(file,"%s\n",encomendas[i].observacoes);
         }
     }
+    fclose(file);
+}
+
+void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas)
+{
+    FILE *file;
+    int i;
+    file = fopen("dados.dat","wb");
+    if(file == NULL)
+    {
+        printf("\nErro ao abrir o ficheiro.");
+    }
+    else
+    {
+        fprintf(file,"%d\n",nVeiculos);
+        fprintf(file,"%d\n",nEncomendas);
+        for(i=0; i<nVeiculos; i++)
+        {
+            fprintf(file,"%s\n",veiculos[i].matricula);
+            fprintf(file,"%d-%d-%d\n",veiculos[i].dataFabrico.dia,veiculos[i].dataFabrico.mes,veiculos[i].dataFabrico.ano);
+            fprintf(file,"%d\n",veiculos[i].carga);
+            fprintf(file,"%d\n",veiculos[i].viagens);
+            fprintf(file,"%d\n",veiculos[i].encomendas);
+        }
+
+        for(i=0; i<nEncomendas; i++)
+        {
+            fprintf(file,"%d\n",encomendas[i].numero);
+            fprintf(file,"%d\n",encomendas[i].peso);
+            fprintf(file,"%d\n",encomendas[i].estado);
+            fprintf(file,"%s\n",encomendas[i].destino);
+            fprintf(file,"%d-%d-%d\n",encomendas[i].dataRegisto.dia,encomendas[i].dataRegisto.mes,encomendas[i].dataRegisto.ano);
+            fprintf(file,"%d-%d-%d\n",encomendas[i].dataEntrega.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano);
+            fprintf(file,"%d-%d-%d\n",encomendas[i].dataDevolucao.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano);
+            fprintf(file,"%s\n",encomendas[i].observacoes);
+        }
+    }
+    fclose(file);
 }

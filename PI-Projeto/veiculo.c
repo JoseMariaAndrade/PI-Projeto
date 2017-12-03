@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "veiculo.h"
 #include "estruturas.h"
@@ -7,7 +8,7 @@
 void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos)
 {
     //tipoVeiculo veiculo;
-    int restanteVeiculos, numero, i;
+    int restanteVeiculos, numero, i, posicao;
     restanteVeiculos = MAX_VEICULOS - *nVeiculos;
 
     if (restanteVeiculos==0)
@@ -27,7 +28,12 @@ void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos)
                 veiculo[i].viagens=0;
                 veiculo[i].encomendas=0;
                 veiculo[i].dataFabrico=lerData("\nInserir Data de Fabrico do veiculo:");
-                lerString("\nInserir Matricula do veiculo:", veiculo[i].matricula, MATRICULA);
+                do
+                {
+                    lerString("\nInserir Matricula do veiculo:", veiculo[i].matricula, MATRICULA);
+                    posicao=procurarVeiculo(veiculo,&nVeiculos, veiculo[i].matricula);
+                }
+                while(posicao!=-1);
                 veiculo[i].estado = lerEstado('V');
                 (*nVeiculos)++;
             }
@@ -73,4 +79,28 @@ void mostrarVeiculos(tipoVeiculo veiculo[], int nVeiculos)
     {
         printf("\nNao existem veiculos.");
     }
+}
+
+
+int procurarVeiculo(tipoVeiculo veiculos[], int nVeiculos, char matricula[])
+{
+    int posicao=-1, i;
+    char s[MATRICULA];
+    if(nVeiculos==0)
+    {
+        printf("\nNao existem veiculos.");
+    }
+    else
+    {
+        for(i=0; i<nVeiculos; i++)
+        {
+            strcpy(s,veiculos[i].matricula);
+            if(strcmp(s,matricula)==0)
+            {
+                posicao=i;
+                i=nVeiculos;
+            }
+        }
+    }
+    return posicao;
 }
