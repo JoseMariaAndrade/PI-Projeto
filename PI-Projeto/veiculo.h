@@ -6,4 +6,6 @@
 void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos);
 void mostrarVeiculos(tipoVeiculo[], int nVeiculos);
 int procurarVeiculo(tipoVeiculo veiculos[], int nVeiculos, char matricula[]);
+void mostarVeiculoEncomenda (tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas);
+
 #endif // VEICULO_H_INCLUDED

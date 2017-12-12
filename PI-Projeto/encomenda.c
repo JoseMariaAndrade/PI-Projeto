@@ -54,14 +54,74 @@ int procurarEncomendas(tipoEncomenda encomendas[], int nEncomendas, int numeroEn
     return posicao;
 }
 
-void eliminarEncomeda(tipoEncomenda encomendas[], int nEncomendas, int numeroEncomenda)
+void eliminarEncomeda(tipoEncomenda encomendas[], int *nEncomendas)
 {
-    int posicao;
+    int posicao, numeroEncomenda, i;
 
-    posicao = porcurarEncomendas(encomendas, nEncomendas, numeroEncomenda);
-
-    if(posicao!=1)
+    if(*nEncomendas!=0)
     {
-        encomendas[posicao]=NULL;
+        do
+        {
+            numeroEncomenda = lerInteiro("Numero de Encomenda:",0,100);
+            posicao = procurarEncomendas(encomendas, *nEncomendas, numeroEncomenda);
+
+            if(posicao==-1)
+            {
+                printf("\nO numero da encomenda %d nao existe", numeroEncomenda);
+            }
+        }
+        while(posicao==-1);
+    }
+    else
+    {
+        printf("\nNao existem encomendas");
+    }
+
+    if(encomendas[posicao].estado==0)
+    {
+        for(i=posicao; i<*nEncomendas; i++)
+        {
+            encomendas[i]=encomendas[i+1];
+        }
+        (*nEncomendas)--;
+    }
+    else
+    {
+        printf("Nao pode eliminar a encomenda %d", numeroEncomenda);
+    }
+
+}
+
+void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas)
+{
+    int posicao, numeroEncomenda;
+
+    if(*nEncomendas!=0)
+    {
+        do
+        {
+            numeroEncomenda = lerInteiro("Numero de Encomenda:",0,100);
+            posicao = procurarEncomendas(encomendas, *nEncomendas, numeroEncomenda);
+
+            if(posicao==-1)
+            {
+                printf("\nO numero da encomenda %d nao existe", numeroEncomenda);
+            }
+        }
+        while(posicao==-1);
+
+        if(encomendas[posicao].estado==3)
+        {
+            lerString("Novo Destino:", encomendas[posicao].destino, DESTINO);
+        }
+        else
+        {
+            printf("Nao pode eliminar a encomenda %d", numeroEncomenda);
+        }
+
+    }
+    else
+    {
+        printf("\nNao existem encomendas");
     }
 }

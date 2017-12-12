@@ -40,7 +40,7 @@ typedef struct
 {
     int numero, peso;
     tipoData dataRegisto, dataEntrega, dataDevolucao;
-    char destino[DESTINO], observacoes[OBSERVACOES];
+    char destino[DESTINO], observacoes[OBSERVACOES], matricula[MATRICULA];
     estadoEncomenda estado;
 } tipoEncomenda;
 
