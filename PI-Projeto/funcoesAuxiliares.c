@@ -227,3 +227,15 @@ void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], i
     }
     fclose(file);
 }
+
+void escreverFicheiroLog(){
+    FILE *ficheiro;
+    ficheiro = fopen("log.txt", "a");
+    if(ficheiro == NULL){
+        perror("\n Erro ao abrir ficheiro log.");
+    }else{
+        fprintf(ficheiro, "\n Ecomenda devolvida \t Nº De Registo \t Destino \t Data de Devolução \t Veiculo ");
+        fprintf(ficheiro, "\n ");
+        fprintf(ficheiro, "\n Causa da devolução: ");
+    }
+}
