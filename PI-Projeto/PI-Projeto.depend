@@ -33,13 +33,12 @@
 	"estruturas.h"
 	"funcoesAuxiliares.h"
 
-1511983619 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\encomenda.c
+1513111868 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\encomenda.c
 	<stdio.h>
 	"encomenda.h"
-	"estruturas.h"
 	"funcoesAuxiliares.h"
 
-1511986905 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\funcoesauxiliares.c
+1511989779 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\funcoesauxiliares.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>
@@ -48,9 +47,9 @@
 1511989534 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\funcoesauxiliares.h
 	"estruturas.h"
 
-1511989301 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\estruturas.h
+1513112196 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\estruturas.h
 
-1511986822 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\main.c
+1513116021 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\main.c
 	<stdio.h>
 	<stdlib.h>
 	"estruturas.h"
@@ -60,7 +59,7 @@
 
 1511520526 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\menu.h
 
-1511985766 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\veiculo.h
+1513116342 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\veiculo.h
 	"estruturas.h"
 
 1511821259 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\menu.c
@@ -69,12 +68,15 @@
 	"funcoesAuxiliares.h"
 	"menu.h"
 
-1511986149 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\veiculo.c
+1513116326 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\veiculo.c
 	<stdio.h>
+	<string.h>
+	<stdlib.h>
 	"veiculo.h"
 	"estruturas.h"
 	"funcoesAuxiliares.h"
+	"encomenda.h"
 
-1511983629 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\encomenda.h
+1512835940 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\encomenda.h
 	"estruturas.h"
 

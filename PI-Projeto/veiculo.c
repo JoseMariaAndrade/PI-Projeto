@@ -105,6 +105,25 @@ int procurarVeiculo(tipoVeiculo veiculos[], int nVeiculos, char matricula[])
     return posicao;
 }
 
+void ordenarVeiculosEncomendasDecrescente(tipoVeiculo veiculos[], int nVeiculos)
+{
+    int i, j, hatrocas;
+    tipoVeiculo aux;
+    hatrocas=1;
+
+    for(i=0;i<nVeiculos-1 && hatrocas!=0;i++){
+        hatrocas=0;
+        for(j=0;j<nVeiculos-i-1;j++){
+            if(veiculos[j+1].encomendas < veiculos[j].encomendas) {
+                hatrocas=1;
+                aux=veiculos[j];
+                veiculos[j]=veiculos[j+1];
+                veiculos[j+1]=aux;
+            }
+        }
+    }
+}
+
 void mostarVeiculoEncomenda (tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas)
 {
 
@@ -151,8 +170,6 @@ void mostarVeiculoEncomenda (tipoVeiculo veiculos[], tipoEncomenda encomendas[],
         }
 
         printf("\t %d \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[posicao].carga, veiculos[posicao].viagens, veiculos[posicao].encomendas, veiculos[posicao].dataFabrico.dia, veiculos[posicao].dataFabrico.mes, veiculos[posicao].dataFabrico.ano);
-
-
     }
     else
     {
