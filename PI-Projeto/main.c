@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "estruturas.h"
 #include "menu.h"
 #include "veiculo.h"
 #include "funcoesAuxiliares.h"
@@ -12,7 +11,7 @@ int main(void)
     tipoEncomenda encomendas[MAX_ENCOMENDAS];
     int nVeiculos=0, nEncomendasRegistadas=0, nEcomendasDevolvidas=0;
     float percEcomendasEntregues=0;
-    char opcao, opcao1;
+    char opcao;
     adicionarVeiculos(veiculos, &nVeiculos);
     mostrarVeiculos(veiculos, nVeiculos);
     gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);
