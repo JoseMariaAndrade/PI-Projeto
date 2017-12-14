@@ -235,31 +235,26 @@ void escreverFicheiroLog(tipoEncomenda encomenda){
         }
 }
 
-/*void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int *nVeiculos, int *nEncomendas){
+void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int *nVeiculos, int *nEncomendas){
     int quantVeiculos, quantEncomendas;
     *nEncomendas = 0;
     *nVeiculos = 0;
 
     FILE* file;
-    file = fopen("dados.dat","wb");
+    file = fopen("dados.dat","rb");
     if(file == NULL){
         perror("\n Erro ao abrir ficheiro para leitura");
     }
     else{
-        quantVeiculos = fread(&(*nVeiculos), sizeof(int), 1, file);
-        if(quantVeiculos != 1){
-            printf("\n Erro ao ler o numero de veiculos");
-            *nVeiculos = 0;
-        }else{
-            quantVeiculos = fread(veiculos, sizeof(veiculos), *nVeiculos, file);
-            if(quantVeiculos != *nVeiculos){
-                printf("\n Erro ao ler dados dos veiculos");
-                *nVeiculos = 0;
-            }
-        }
+
+
+
+
+
+
         if(fclose(file) == EOF){
             perror("\n Erro ao fechar ficheiro ");
         }
     }
 }
-*/
+

@@ -10,11 +10,11 @@ int main(void)
     tipoVeiculo veiculos[MAX_VEICULOS];
     tipoEncomenda encomendas[MAX_ENCOMENDAS];
     int nVeiculos=0, nEncomendasRegistadas=0, nEcomendasDevolvidas=0;
-    float percEcomendasEntregues=0;
+    float percEcomendasEntregues=0.0, mediaPesos = 0;
     char opcao;
-    adicionarVeiculos(veiculos, &nVeiculos);
+  /*  adicionarVeiculos(veiculos, &nVeiculos);
     mostrarVeiculos(veiculos, nVeiculos);
-    gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);
+    gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas); */
     do
     {
         opcao = menuPrincipal(nVeiculos, nEncomendasRegistadas, percEcomendasEntregues, nEcomendasDevolvidas);
@@ -75,7 +75,9 @@ int main(void)
             }while(opcao != 'V');
             break;
         case 'S':
-             //stats sobre a empresa(ecomendas/veiculos)
+             calculos(encomendas, nEncomendasRegistadas, &mediaPesos, &percEcomendasEntregues);
+             printf("\n Peso medio das encomendas: %.2f", mediaPesos);
+             printf("\n Percentagem de encomendas entregues: %.2f", percEcomendasEntregues);
             break;
         case 'G':
              //gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);

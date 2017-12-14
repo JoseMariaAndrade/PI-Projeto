@@ -10,7 +10,7 @@ char opcao;
     do{
         printf("\n \t\t\t\t\t\t Menu Principal");
         printf("\n Numero de veiculos registados: %d \t\t\t\t Numero de ecomendas registadas: %d", nVeiculos, nEcomendasRegistadas);
-        printf("\n Percentagem de ecomendas entregues(%%): %f \t Numero de ecomendas devolvidas: %d", percEcomendasEntregues, nEcomendasDevolvidas);
+        printf("\n Percentagem de ecomendas entregues(%%): %.2f \t\t\t Numero de ecomendas devolvidas: %d", percEcomendasEntregues, nEcomendasDevolvidas);
         printf("\n");
         printf("\n V - Veiculos");
         printf("\n E - Ecomendas");
