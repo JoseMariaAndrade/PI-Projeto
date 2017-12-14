@@ -63,7 +63,7 @@ char opcao;
         printf("\n C - Consultar dados do veiculo");
         printf("\n L - Listar dados do veiculo");
         printf("\n E - Listar veiculos por ordem decrescente da quantidade de ecomendas transportadas");
-        printf("\n U - Listar os dados do veiculo que efetuou o ultimo transporte da ecomenda(   )");
+        printf("\n U - Listar os dados do veiculo que efetuou o ultimo transporte da ecomenda(indique uma encomenda)");
         printf("\n V - Voltar ao menu principal");
         printf("\n Opcao: ");
 
@@ -85,7 +85,7 @@ char opcao;
         printf("\n \t\t\t\t\t\t Menu Ecomendas");
         printf("\n I - Inserir dados da ecomenda");
         printf("\n C - Consultar dados da ecomenda");
-        printf("\n L - Listar dados da ecomenda");
+        printf("\n L - Listar dados das ecomendas");
         printf("\n E - Eleminnar ecomenda");
         printf("\n A - Alterar destino de ecomenda devolvida");
         printf("\n V - Voltar ao menu principal");

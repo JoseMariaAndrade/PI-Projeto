@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "encomenda.h"
 #include "menu.h"
 #include "veiculo.h"
 #include "funcoesAuxiliares.h"
@@ -47,6 +48,7 @@ int main(void)
                     case 'C':
                         break;
                     case 'L':
+                        mostrarEncomendas(encomendas,nEncomendasRegistadas);
                         break;
                     case 'E':
                         break;

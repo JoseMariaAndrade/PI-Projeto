@@ -145,3 +145,16 @@ void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistada
         *perEncomendasEntregues = contPositivas * 100.0 / nEncomendasRegistadas;
     }
 }
+
+void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas){
+    int i;
+    if(nEncomendasRegistadas > 0){
+        printf("\n Mostrar os dados das encomendas");
+        printf("\n Numero de Registo \t Data de registo \t Peso(Kg) \t Destino \t Estado(0 - Registada,1 - Carregada,2 - Entregue,3 - Devolvida) \t Data de Entrega(Ou devoluçao) \t Conjunto de Obrevaçoes");
+        for(i=0; i<nEncomendasRegistadas; i++){
+            printf("\n %d \t %d/%d/%d \t %f \t %s \t %d \t %d/%d/%d \t %s", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino, encomendas[i].estado, encomendas[i].dataEntrega.dia, encomendas[i].dataEntrega.mes, encomendas[i].dataEntrega.ano, encomendas[i].observacoes);
+        }
+    }else{
+        printf("\n Nao exitem encomendas registadas");
+    }
+}
