@@ -101,3 +101,22 @@ char opcao;
     }while(opcao != 'I' && opcao != 'C' && opcao != 'L' && opcao != 'E'&& opcao != 'A' && opcao != 'V');
     return opcao;
 }
+
+char menuSave(void){
+char opcao;
+    do{
+        printf("\n Deseja gravas os dados inseridos?(Os dados serao perdidos se nao guardar)");
+        printf("\n S - Sim");
+        printf("\n N - Nao");
+        printf("\n Opcao: ");
+
+        scanf("%c", &opcao);
+        limparBufferStdin();
+        opcao = toupper(opcao);
+
+        if(opcao != 'S' && opcao != 'N'){
+            printf("\n Opcao invalida");
+        }
+    }while(opcao != 'S' && opcao != 'N');
+    return opcao;
+}

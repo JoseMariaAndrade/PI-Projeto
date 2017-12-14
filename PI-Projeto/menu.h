@@ -5,5 +5,6 @@ char menuPrincipal(int nVeiculos, int nEcomendasRegistadas, int nEcomendasDevolv
 char menuRegisto(void);
 char menuVeiculos(void);
 char menuEcomendas(void);
+char menuSave(void);
 
 #endif // MENU_H_INCLUDED

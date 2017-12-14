@@ -9,12 +9,12 @@ int main(void)
 {
     tipoVeiculo veiculos[MAX_VEICULOS];
     tipoEncomenda encomendas[MAX_ENCOMENDAS];
-    int nVeiculos=0, nEncomendasRegistadas=0, nEcomendasDevolvidas=0;
+    int nVeiculos=0, nEncomendasRegistadas=0, nEcomendasDevolvidas=0, contSave=0;
     float percEcomendasEntregues=0.0, mediaPesos = 0;
-    char opcao;
-  /*  adicionarVeiculos(veiculos, &nVeiculos);
+    char opcao, opcao1;
+    adicionarVeiculos(veiculos, &nVeiculos);
     mostrarVeiculos(veiculos, nVeiculos);
-    gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas); */
+    gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);
     do
     {
         opcao = menuPrincipal(nVeiculos, nEncomendasRegistadas, percEcomendasEntregues, nEcomendasDevolvidas);
@@ -80,12 +80,23 @@ int main(void)
              printf("\n Percentagem de encomendas entregues: %.2f", percEcomendasEntregues);
             break;
         case 'G':
-             //gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);
+             //funcao save;
+             contSave++;
             break;
         case 'L':
             //lerFicheiroTexto
             break;
         case 'F':
+            if(contSave == 0){
+                opcao1 = menuSave();
+                switch(opcao1){
+                    case 'S':
+                        //funcao save
+                        break;
+                    case 'N':
+                        break;
+                }
+            }
             printf("\n Terminou o programa");
             break;
         }

@@ -137,7 +137,7 @@ void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistada
     }else{
         for(i=0; i<nEncomendasRegistadas; i++){
             somaPesos = somaPesos + encomendas[i].peso;
-            if(encomendas[i].estado = 2){
+            if(encomendas[i].estado == 2){
                 contPositivas++;
             }
         }
