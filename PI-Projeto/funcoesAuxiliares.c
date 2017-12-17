@@ -310,16 +310,6 @@ void limparBufferStdin()
     while(lixo != '\n' && lixo != EOF);
 }
 
-/** \brief
- *
- * \param tipoVeiculo veiculos[]
- * \param tipoEncomenda encomendas[]
- * \param int nVeiculos
- * \param int nEncomendas
- * \return void
- *
- */
-
 void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas)
 {
     FILE *file;
@@ -354,7 +344,9 @@ void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int
             fprintf(file,"%s\n",encomendas[i].observacoes);
         }
     }
-    fclose(file);
+    if(fclose(file) == EOF){
+            perror("\n Erro ao fechar ficheiro");
+        }
 }
 
 void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas)
@@ -391,5 +383,44 @@ void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], i
             fprintf(file,"%s\n",encomendas[i].observacoes);
         }
     }
-    fclose(file);
+    if(fclose(file) == EOF){
+            perror("\n Erro ao fechar ficheiro");
+        }
 }
+
+void escreverFicheiroLog(tipoEncomenda encomenda){
+    FILE *file;
+    file = fopen("log.txt", "a");
+    if(file == NULL){
+        perror("\n Erro ao abrir ficheiro log.");
+    }else{
+        fprintf(file, "\n\t%d\t%s\t %d/%d/%d\t%s", encomenda.numero, encomenda.destino, encomenda.dataDevolucao.dia, encomenda.dataDevolucao.mes, encomenda.dataDevolucao.ano, encomenda.matricula);
+        fprintf(file, "\nCausa da devolução:%s", encomenda.observacoes);
+    }if(fclose(file) == EOF){
+            perror("\n Erro ao fechar ficheiro");
+        }
+}
+
+void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int *nVeiculos, int *nEncomendas){
+    int quantVeiculos, quantEncomendas;
+    *nEncomendas = 0;
+    *nVeiculos = 0;
+
+    FILE* file;
+    file = fopen("dados.dat","rb");
+    if(file == NULL){
+        perror("\n Erro ao abrir ficheiro para leitura");
+    }
+    else{
+
+
+
+
+
+
+        if(fclose(file) == EOF){
+            perror("\n Erro ao fechar ficheiro ");
+        }
+    }
+}
+
