@@ -8,7 +8,6 @@
 
 void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos)
 {
-    //tipoVeiculo veiculo;
     int restanteVeiculos, numero, i;
     restanteVeiculos = MAX_VEICULOS - *nVeiculos;
 
@@ -29,12 +28,7 @@ void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos)
                 veiculo[i].viagens=0;
                 veiculo[i].encomendas=0;
                 veiculo[i].dataFabrico=lerData("\nInserir Data de Fabrico do veiculo:");
-                //do
-                //{
-                lerString("\nInserir Matricula do veiculo:", veiculo[i].matricula, MATRICULA);
-                //posicao=procurarVeiculo(veiculo,&nVeiculos, veiculo[i].matricula);
-                //}
-                //while(posicao!=-1);
+                lerMatricula("Matricula:", veiculo[i]);
                 veiculo[i].estado = lerEstado('V');
                 (*nVeiculos)++;
             }
@@ -82,6 +76,207 @@ void mostrarVeiculos(tipoVeiculo veiculo[], int nVeiculos)
     }
 }
 
+void consultaVeiculos(tipoVeiculo veiculos[], int nVeiculos, char tipoPesquisa)
+{
+    int carga, contador=-1, index[MAX_VEICULOS], i, maximo, estado;
+
+    if(nVeiculos!=0)
+    {
+        switch (tipoPesquisa)
+        {
+        case 'C':
+            maximo = maximoCarga(veiculos, nVeiculos);
+            carga = lerInteiro("",0,maximo);
+
+            for(i=0; i<nVeiculos; i++)
+            {
+                if(veiculos[i].carga==carga)
+                {
+                    contador++;
+                    index[contador]=i;
+                }
+            }
+
+            if(contador!=-1)
+            {
+                printf("\nVeiculos:");
+                printf("\nMatricula \t Estado \t Carga \t Viagens \t Encomendas \t Data Fabrico");
+
+                for(i=0; i<=contador; i++)
+                {
+                    printf("\n%s ", veiculos[index[i]].matricula);
+
+                    switch(veiculos[index[i]].estado)
+                    {
+                    case 0:
+                        printf("\t\t Disponivel ");
+                        break;
+                    case 1:
+                        printf("\t\t A Transportar ");
+                        break;
+                    case 2:
+                        printf("\t\t Regresso ");
+                        break;
+                    case 3:
+                        printf("\t\t Avariado ");
+                        break;
+                    }
+
+                    printf("\t %d \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
+                }
+            }
+            else
+            {
+                printf("\nNao existem veiculos com carga %d", carga);
+            }
+
+            break;
+        case 'E':
+
+            estado = lerEstado('V');
+
+            for(i=0; i<nVeiculos; i++)
+            {
+                if(veiculos[i].estado==estado)
+                {
+                    contador++;
+                    index[contador]=i;
+                }
+            }
+
+            if(contador!=-1)
+            {
+                printf("\nVeiculos:");
+                printf("\nMatricula \t Estado \t Carga \t Viagens \t Encomendas \t Data Fabrico");
+
+                for(i=0; i<=contador; i++)
+                {
+                    printf("\n%s ", veiculos[index[i]].matricula);
+
+                    switch(veiculos[index[i]].estado)
+                    {
+                    case 0:
+                        printf("\t\t Disponivel ");
+                        break;
+                    case 1:
+                        printf("\t\t A Transportar ");
+                        break;
+                    case 2:
+                        printf("\t\t Regresso ");
+                        break;
+                    case 3:
+                        printf("\t\t Avariado ");
+                        break;
+                    }
+
+                    printf("\t %d \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
+                }
+            }
+            else
+            {
+                printf("\nNao existem veiculos com estado ");
+                switch(estado)
+                {
+                case 0:
+                    printf(" Disponivel ");
+                    break;
+                case 1:
+                    printf(" A Transportar ");
+                    break;
+                case 2:
+                    printf(" Regresso ");
+                    break;
+                case 3:
+                    printf(" Avariado ");
+                    break;
+                }
+
+            }
+            break;
+        case 'M':
+            estado = lerEstado('V');
+
+            for(i=0; i<nVeiculos; i++)
+            {
+                if(veiculos[i].estado==estado)
+                {
+                    contador++;
+                    index[contador]=i;
+                }
+            }
+
+            if(contador!=-1)
+            {
+                printf("\nVeiculos:");
+                printf("\nMatricula \t Estado \t Carga \t Viagens \t Encomendas \t Data Fabrico");
+
+                for(i=0; i<=contador; i++)
+                {
+                    printf("\n%s ", veiculos[index[i]].matricula);
+
+                    switch(veiculos[index[i]].estado)
+                    {
+                    case 0:
+                        printf("\t\t Disponivel ");
+                        break;
+                    case 1:
+                        printf("\t\t A Transportar ");
+                        break;
+                    case 2:
+                        printf("\t\t Regresso ");
+                        break;
+                    case 3:
+                        printf("\t\t Avariado ");
+                        break;
+                    }
+
+                    printf("\t %d \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
+                }
+            }
+            else
+            {
+                printf("\nNao existem veiculos com estado ");
+                switch(estado)
+                {
+                case 0:
+                    printf(" Disponivel ");
+                    break;
+                case 1:
+                    printf(" A Transportar ");
+                    break;
+                case 2:
+                    printf(" Regresso ");
+                    break;
+                case 3:
+                    printf(" Avariado ");
+                    break;
+                }
+
+            }
+            break;
+        };
+    }
+    else
+    {
+        printf("\nNao existem veiculos.");
+    }
+
+}
+
+int maximoCarga(tipoVeiculo veiculos[], int nVeiculos)
+{
+    int maximo=0, i;
+
+    for(i=0; i<nVeiculos; i++)
+    {
+        if(veiculos[i].carga>maximo)
+        {
+            maximo=veiculos[i].carga;
+        }
+    }
+    return maximo;
+}
+
 int procurarVeiculo(tipoVeiculo veiculos[], int nVeiculos, char matricula[])
 {
     int posicao=-1, i;
@@ -111,10 +306,13 @@ void ordenarVeiculosEncomendasDecrescente(tipoVeiculo veiculos[], int nVeiculos)
     tipoVeiculo aux;
     hatrocas=1;
 
-    for(i=0;i<nVeiculos-1 && hatrocas!=0;i++){
+    for(i=0; i<nVeiculos-1 && hatrocas!=0; i++)
+    {
         hatrocas=0;
-        for(j=0;j<nVeiculos-i-1;j++){
-            if(veiculos[j+1].encomendas < veiculos[j].encomendas) {
+        for(j=0; j<nVeiculos-i-1; j++)
+        {
+            if(veiculos[j+1].encomendas > veiculos[j].encomendas)
+            {
                 hatrocas=1;
                 aux=veiculos[j];
                 veiculos[j]=veiculos[j+1];

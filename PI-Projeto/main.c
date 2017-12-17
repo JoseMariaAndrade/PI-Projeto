@@ -13,9 +13,7 @@ int main(void)
     int nVeiculos=0, nEncomendasRegistadas=0, nEcomendasDevolvidas=0, contSave=0;
     float percEcomendasEntregues=0.0, mediaPesos = 0;
     char opcao, opcao1;
-    adicionarVeiculos(veiculos, &nVeiculos);
-    mostrarVeiculos(veiculos, nVeiculos);
-    gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);
+
     do
     {
         opcao = menuPrincipal(nVeiculos, nEncomendasRegistadas, percEcomendasEntregues, nEcomendasDevolvidas);
