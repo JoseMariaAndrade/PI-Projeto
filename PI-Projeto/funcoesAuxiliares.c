@@ -105,7 +105,7 @@ tipoData lerData(char mensagem[MAX_CHARS])
     int maxDiasMes;
     printf(mensagem);
     data.ano = lerInteiro("\nAno ", ANO_MINIMO, ANO_MAXIMO);
-    data.mes = lerInteiro("\nMes ", 1, 12);
+    data.mes = lerInteiro("Mes ", 1, 12);
     switch(data.mes)
     {
     case 2:
@@ -128,9 +128,175 @@ tipoData lerData(char mensagem[MAX_CHARS])
         maxDiasMes=31;
     }
 
-    data.dia=lerInteiro("\nDia ", 1, maxDiasMes);
+    data.dia=lerInteiro("Dia ", 1, maxDiasMes);
 
     return data;
+}
+
+void lerMatricula(char Mensagem[MAX_CHARS], tipoVeiculo veiculo)
+{
+    int contadorNumeros=0, contadorLetras=0, a, b, controlo=0, tamanho;
+    char parteMatricula[3], matricula[MATRICULA] = "";
+    do
+    {
+        if((contadorNumeros==0 && contadorLetras==0) || (contadorNumeros==1 && contadorLetras==0))
+        {
+            printf("\nInsera dois numeros ou duas letras:");
+            fgets(parteMatricula, sizeof(parteMatricula), stdin);
+            a = (int)parteMatricula[0];
+            b = (int)parteMatricula[1];
+            if(isdigit(a) && isdigit(b))
+            {
+                contadorNumeros++;
+                tamanho = strlen(parteMatricula);
+
+                if (tamanho == 1)
+                {
+                    printf("\n String Vazia.");
+                }
+                else
+                {
+                    if(parteMatricula[tamanho-1] == '\n')
+                    {
+                        parteMatricula[tamanho-1] = '\0';
+                    }
+                    else
+                    {
+                        limparBufferStdin();
+                    }
+                }
+                strcat(matricula, parteMatricula);
+                if(strlen(matricula)<8)
+                {
+                    strcat(matricula,"-");
+                }
+            }
+            else
+            {
+                if(isalpha(a) && isalpha(b))
+                {
+                    contadorLetras++;
+
+                    tamanho = strlen(parteMatricula);
+
+                    if (tamanho == 1)
+                    {
+                        printf("\n String Vazia.");
+                    }
+                    else
+                    {
+                        if(parteMatricula[tamanho-1] == '\n')
+                        {
+                            parteMatricula[tamanho-1] = '\0';
+                        }
+                        else
+                        {
+                            limparBufferStdin();
+                        }
+                    }
+
+                    strcat(matricula, parteMatricula);
+                    if(strlen(matricula)<8)
+                    {
+                        strcat(matricula,"-");
+                    }
+                }
+                else
+                {
+                    printf("\nErro");
+                }
+            }
+        }
+        else
+        {
+            if(contadorLetras==1)
+            {
+                printf("\nInsera dois numeros:");
+                fgets(parteMatricula, sizeof(parteMatricula), stdin);
+                a = (int)parteMatricula[0];
+                b = (int)parteMatricula[1];
+                if(isdigit(a) && isdigit(b))
+                {
+                    contadorNumeros++;
+                    tamanho = strlen(parteMatricula);
+
+                    if (tamanho == 1)
+                    {
+                        printf("\n String Vazia.");
+                    }
+                    else
+                    {
+                        if(parteMatricula[tamanho-1] == '\n')
+                        {
+                            parteMatricula[tamanho-1] = '\0';
+                        }
+                        else
+                        {
+                            limparBufferStdin();
+                        }
+                    }
+                    strcat(matricula, parteMatricula);
+                    if(strlen(matricula)<8)
+                    {
+                        strcat(matricula,"-");
+                    }
+
+                }
+                else
+                {
+                    printf("\nErro");
+                }
+
+            }
+            else
+            {
+                if(contadorNumeros==2)
+                {
+                    printf("\nInsera duas letras:");
+                    fgets(parteMatricula, sizeof(parteMatricula), stdin);
+                    a = (int)parteMatricula[0];
+                    b = (int)parteMatricula[1];
+                    if(isalpha(a) && isalpha(b))
+                    {
+                        contadorLetras++;
+                        tamanho = strlen(parteMatricula);
+
+                        if (tamanho == 1)
+                        {
+                            printf("\n String Vazia.");
+                        }
+                        else
+                        {
+                            if(parteMatricula[tamanho-1] == '\n')
+                            {
+                                parteMatricula[tamanho-1] = '\0';
+                            }
+                            else
+                            {
+                                limparBufferStdin();
+                            }
+                        }
+                        strcat(matricula, parteMatricula);
+                        if(strlen(matricula)<8)
+                        {
+                            strcat(matricula,"-");
+                        }
+                    }
+                    else
+                    {
+                        printf("\nErro");
+                    }
+                }
+            }
+        }
+
+        if(contadorNumeros==2 && contadorLetras==1)
+        {
+            controlo=1;
+        }
+    }
+    while(controlo!=1);
+    strcpy(veiculo.matricula, matricula);
 }
 
 void limparBufferStdin()
