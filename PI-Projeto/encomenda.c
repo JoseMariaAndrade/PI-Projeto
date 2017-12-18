@@ -20,8 +20,9 @@ void adicionarEncomendas(tipoEncomenda encomenda[], int nEncomendas)
         {
             for (i=nEncomendas; i<numero; i++)
             {
-                printf("\n Inserir dados da encomenda:");
-                encomenda[i].numero = lerInteiro("Numero encomenda:",0,0);
+                printf("\nInserir dados da encomenda:");
+                encomenda[i].numero = lerInteiro("\nNumero encomenda",0,0);
+                encomenda[i].peso = lerFloat("\nPeso da encomenda:",0,1000);
                 encomenda[i].estado = lerEstado('E');
             }
         }

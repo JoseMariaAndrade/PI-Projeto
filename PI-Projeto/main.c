@@ -23,6 +23,7 @@ int main(void)
                 opcao = menuVeiculos();
                 switch(opcao){
                     case 'I':
+                        adicionarVeiculos(veiculos, &nVeiculos);
                         break;
                     case 'C':
                         break;
@@ -42,6 +43,7 @@ int main(void)
                 opcao = menuEcomendas();
                 switch(opcao){
                     case 'I':
+                        adicionarEncomendas(encomendas, nEncomendasRegistadas);
                         break;
                     case 'C':
                         break;
@@ -49,8 +51,10 @@ int main(void)
                         mostrarEncomendas(encomendas,nEncomendasRegistadas);
                         break;
                     case 'E':
+                        eliminarEncomeda(encomendas, &nEncomendasRegistadas);
                         break;
                     case 'A':
+                        alterarDestino(encomendas, &nEncomendasRegistadas);
                         break;
                     case 'V':
                         break;

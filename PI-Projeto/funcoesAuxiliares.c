@@ -42,6 +42,23 @@ int lerInteiro(char mensagem[MAX_CHARS], int numeroMinimo, int numeroMaximo)
     return numero;
 }
 
+float lerFloat(char mensagem[MAX_CHARS], int minimo, int maximo){
+    int controlo;
+    float numero;
+
+    do{
+        printf("%s (%d - %d)", mensagem, minimo,maximo);
+        controlo = scanf("%f", &numero);
+        limparBufferStdin();
+        if(numero<minimo || numero>maximo || controlo==0){
+            printf("\n Numero invalido");
+        }
+    }while(numero<minimo || numero>maximo || controlo ==0);
+
+    return numero;
+}
+
+
 void lerString(char mensagem[MAX_CHARS], char vetorChars[50], int maximoCaracteres)
 {
     int tamanho;
@@ -327,7 +344,7 @@ void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int
         {
             fprintf(file,"%s\n",veiculos[i].matricula);
             fprintf(file,"%d-%d-%d\n",veiculos[i].dataFabrico.dia,veiculos[i].dataFabrico.mes,veiculos[i].dataFabrico.ano);
-            fprintf(file,"%d\n",veiculos[i].carga);
+            fprintf(file,"%f\n",veiculos[i].carga);
             fprintf(file,"%d\n",veiculos[i].viagens);
             fprintf(file,"%d\n",veiculos[i].encomendas);
         }
@@ -335,7 +352,7 @@ void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int
         for(i=0; i<nEncomendas; i++)
         {
             fprintf(file,"%d\n",encomendas[i].numero);
-            fprintf(file,"%d\n",encomendas[i].peso);
+            fprintf(file,"%f\n",encomendas[i].peso);
             fprintf(file,"%d\n",encomendas[i].estado);
             fprintf(file,"%s\n",encomendas[i].destino);
             fprintf(file,"%d-%d-%d\n",encomendas[i].dataRegisto.dia,encomendas[i].dataRegisto.mes,encomendas[i].dataRegisto.ano);
@@ -366,7 +383,7 @@ void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], i
         {
             fprintf(file,"%s\n",veiculos[i].matricula);
             fprintf(file,"%d-%d-%d\n",veiculos[i].dataFabrico.dia,veiculos[i].dataFabrico.mes,veiculos[i].dataFabrico.ano);
-            fprintf(file,"%d\n",veiculos[i].carga);
+            fprintf(file,"%f\n",veiculos[i].carga);
             fprintf(file,"%d\n",veiculos[i].viagens);
             fprintf(file,"%d\n",veiculos[i].encomendas);
         }
@@ -374,7 +391,7 @@ void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], i
         for(i=0; i<nEncomendas; i++)
         {
             fprintf(file,"%d\n",encomendas[i].numero);
-            fprintf(file,"%d\n",encomendas[i].peso);
+            fprintf(file,"%f\n",encomendas[i].peso);
             fprintf(file,"%d\n",encomendas[i].estado);
             fprintf(file,"%s\n",encomendas[i].destino);
             fprintf(file,"%d-%d-%d\n",encomendas[i].dataRegisto.dia,encomendas[i].dataRegisto.mes,encomendas[i].dataRegisto.ano);
