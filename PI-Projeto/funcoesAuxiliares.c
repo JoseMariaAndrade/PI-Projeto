@@ -133,7 +133,7 @@ tipoData lerData(char mensagem[MAX_CHARS])
     return data;
 }
 
-void lerMatricula(char Mensagem[MAX_CHARS], tipoVeiculo veiculo)
+char* lerMatricula(char Mensagem[MAX_CHARS], char* r)
 {
     int contadorNumeros=0, contadorLetras=0, a, b, controlo=0, tamanho;
     char parteMatricula[3], matricula[MATRICULA] = "";
@@ -296,7 +296,8 @@ void lerMatricula(char Mensagem[MAX_CHARS], tipoVeiculo veiculo)
         }
     }
     while(controlo!=1);
-    strcpy(veiculo.matricula, matricula);
+    strcat(r, matricula);
+    return r;
 }
 
 void limparBufferStdin()
@@ -335,7 +336,7 @@ void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int
         for(i=0; i<nEncomendas; i++)
         {
             fprintf(file,"%d\n",encomendas[i].numero);
-            fprintf(file,"%d\n",encomendas[i].peso);
+            fprintf(file,"%f\n",encomendas[i].peso);
             fprintf(file,"%d\n",encomendas[i].estado);
             fprintf(file,"%s\n",encomendas[i].destino);
             fprintf(file,"%d-%d-%d\n",encomendas[i].dataRegisto.dia,encomendas[i].dataRegisto.mes,encomendas[i].dataRegisto.ano);
@@ -374,7 +375,7 @@ void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], i
         for(i=0; i<nEncomendas; i++)
         {
             fprintf(file,"%d\n",encomendas[i].numero);
-            fprintf(file,"%d\n",encomendas[i].peso);
+            fprintf(file,"%f\n",encomendas[i].peso);
             fprintf(file,"%d\n",encomendas[i].estado);
             fprintf(file,"%s\n",encomendas[i].destino);
             fprintf(file,"%d-%d-%d\n",encomendas[i].dataRegisto.dia,encomendas[i].dataRegisto.mes,encomendas[i].dataRegisto.ano);

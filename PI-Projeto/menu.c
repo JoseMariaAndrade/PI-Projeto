@@ -61,7 +61,7 @@ char opcao;
         printf("\n \t\t\t\t\t\t Menu Veiculos");
         printf("\n I - Inserir dados do veiculo");
         printf("\n C - Consultar dados do veiculo");
-        printf("\n L - Listar dados do veiculo");
+        printf("\n L - Listar dados dos veiculos");
         printf("\n E - Listar veiculos por ordem decrescente da quantidade de ecomendas transportadas");
         printf("\n U - Listar os dados do veiculo que efetuou o ultimo transporte da ecomenda(indique uma encomenda)");
         printf("\n V - Voltar ao menu principal");

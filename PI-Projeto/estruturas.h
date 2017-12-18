@@ -38,7 +38,8 @@ typedef struct
 
 typedef struct
 {
-    int numero, peso;
+    int numero;
+    float peso;
     tipoData dataRegisto, dataEntrega, dataDevolucao;
     char destino[DESTINO], observacoes[OBSERVACOES], matricula[MATRICULA];
     estadoEncomenda estado;

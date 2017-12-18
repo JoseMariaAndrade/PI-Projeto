@@ -10,6 +10,7 @@ void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos)
 {
     int restanteVeiculos, numero, i;
     restanteVeiculos = MAX_VEICULOS - *nVeiculos;
+    char str[MATRICULA] = {'\0'} ;
 
     if (restanteVeiculos==0)
     {
@@ -28,7 +29,7 @@ void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos)
                 veiculo[i].viagens=0;
                 veiculo[i].encomendas=0;
                 veiculo[i].dataFabrico=lerData("\nInserir Data de Fabrico do veiculo:");
-                lerMatricula("Matricula:", veiculo[i]);
+                strcpy(veiculo[i].matricula,lerMatricula("Matricula:", str));
                 veiculo[i].estado = lerEstado('V');
                 (*nVeiculos)++;
             }
@@ -51,7 +52,8 @@ void mostrarVeiculos(tipoVeiculo veiculo[], int nVeiculos)
 
         for(i=0; i<nVeiculos; i++)
         {
-            printf("\n%s ", veiculo[i].matricula);
+            printf("\n%s", veiculo[i].matricula);
+
             switch(veiculo[i].estado)
             {
             case 0:
