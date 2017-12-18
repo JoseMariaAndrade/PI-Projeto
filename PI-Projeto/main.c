@@ -55,8 +55,10 @@ int main(void)
                         mostrarEncomendas(encomendas,nEncomendasRegistadas);
                         break;
                     case 'E':
+                        eliminarEncomeda(encomendas, &nEncomendasRegistadas);
                         break;
                     case 'A':
+                        alterarDestino(encomendas, &nEncomendasRegistadas);
                         break;
                     case 'V':
                         break;

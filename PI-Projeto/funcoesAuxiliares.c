@@ -42,6 +42,23 @@ int lerInteiro(char mensagem[MAX_CHARS], int numeroMinimo, int numeroMaximo)
     return numero;
 }
 
+float lerFloat(char mensagem[MAX_CHARS], int minimo, int maximo){
+    int controlo;
+    float numero;
+
+    do{
+        printf("%s (%d - %d)", mensagem, minimo,maximo);
+        controlo = scanf("%f", &numero);
+        limparBufferStdin();
+        if(numero<minimo || numero>maximo || controlo==0){
+            printf("\n Numero invalido");
+        }
+    }while(numero<minimo || numero>maximo || controlo ==0);
+
+    return numero;
+}
+
+
 void lerString(char mensagem[MAX_CHARS], char vetorChars[50], int maximoCaracteres)
 {
     int tamanho;
@@ -328,7 +345,7 @@ void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int
         {
             fprintf(file,"%s\n",veiculos[i].matricula);
             fprintf(file,"%d-%d-%d\n",veiculos[i].dataFabrico.dia,veiculos[i].dataFabrico.mes,veiculos[i].dataFabrico.ano);
-            fprintf(file,"%d\n",veiculos[i].carga);
+            fprintf(file,"%f\n",veiculos[i].carga);
             fprintf(file,"%d\n",veiculos[i].viagens);
             fprintf(file,"%d\n",veiculos[i].encomendas);
         }
@@ -367,7 +384,7 @@ void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], i
         {
             fprintf(file,"%s\n",veiculos[i].matricula);
             fprintf(file,"%d-%d-%d\n",veiculos[i].dataFabrico.dia,veiculos[i].dataFabrico.mes,veiculos[i].dataFabrico.ano);
-            fprintf(file,"%d\n",veiculos[i].carga);
+            fprintf(file,"%f\n",veiculos[i].carga);
             fprintf(file,"%d\n",veiculos[i].viagens);
             fprintf(file,"%d\n",veiculos[i].encomendas);
         }

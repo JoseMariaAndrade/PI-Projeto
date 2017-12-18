@@ -69,7 +69,7 @@ void mostrarVeiculos(tipoVeiculo veiculo[], int nVeiculos)
                 printf("\t\t Avariado ");
                 break;
             }
-            printf("\t %d \t %d \t\t %d \t\t %2d-%2d-%4d", veiculo[i].carga, veiculo[i].viagens, veiculo[i].encomendas, veiculo[i].dataFabrico.dia, veiculo[i].dataFabrico.mes, veiculo[i].dataFabrico.ano);
+            printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculo[i].carga, veiculo[i].viagens, veiculo[i].encomendas, veiculo[i].dataFabrico.dia, veiculo[i].dataFabrico.mes, veiculo[i].dataFabrico.ano);
         }
     }
     else
@@ -124,7 +124,7 @@ void consultaVeiculos(tipoVeiculo veiculos[], int nVeiculos, char tipoPesquisa)
                         break;
                     }
 
-                    printf("\t %d \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
+                    printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
                 }
             }
             else
@@ -171,7 +171,7 @@ void consultaVeiculos(tipoVeiculo veiculos[], int nVeiculos, char tipoPesquisa)
                         break;
                     }
 
-                    printf("\t %d \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
+                    printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
                 }
             }
             else
@@ -232,7 +232,7 @@ void consultaVeiculos(tipoVeiculo veiculos[], int nVeiculos, char tipoPesquisa)
                         break;
                     }
 
-                    printf("\t %d \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
+                    printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
                 }
             }
             else
@@ -369,7 +369,7 @@ void mostarVeiculoEncomenda (tipoVeiculo veiculos[], tipoEncomenda encomendas[],
             break;
         }
 
-        printf("\t %d \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[posicao].carga, veiculos[posicao].viagens, veiculos[posicao].encomendas, veiculos[posicao].dataFabrico.dia, veiculos[posicao].dataFabrico.mes, veiculos[posicao].dataFabrico.ano);
+        printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[posicao].carga, veiculos[posicao].viagens, veiculos[posicao].encomendas, veiculos[posicao].dataFabrico.dia, veiculos[posicao].dataFabrico.mes, veiculos[posicao].dataFabrico.ano);
     }
     else
     {

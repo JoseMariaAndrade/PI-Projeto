@@ -2,6 +2,7 @@
 #define ENCOMENDA_H_INCLUDED
 
 #include "estruturas.h"
+#include "funcoesAuxiliares.h"
 
 void adicionarEncomendas(tipoEncomenda encomenda[], int nEncomendas);
 int procurarEncomendas(tipoEncomenda encomendas[], int nEncomendas, int numeroEncomenda);
