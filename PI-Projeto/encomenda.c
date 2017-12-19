@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-<<<<<<< HEAD
-=======
 #include <time.h>
->>>>>>> df2ef7323eadaa23e6210f7d1090cc6da8f39209
 
 
 #include "encomenda.h"
@@ -197,9 +194,7 @@ void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendas
     }
 }
 
-<<<<<<< HEAD
 void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[], int nEncomendas){
-=======
 void consultaEncomendas(tipoEncomenda encomendas[], int nEncomendas, char tipoPesquisa)
 {
     int contador=-1, index[MAX_ENCOMENDAS], i, estado, numero;
@@ -396,7 +391,6 @@ int contagemEncomendasEstado(tipoEncomenda encomendas[], int nEncomendas, int es
 }
 
 void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[],tipoClone destinos[], int nEncomendas){
->>>>>>> df2ef7323eadaa23e6210f7d1090cc6da8f39209
     int i, invariavel;
     tipoData data = lerData("\n Data: ");
     for(i=0;i<nEncomendas;i++){
