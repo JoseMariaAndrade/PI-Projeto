@@ -721,4 +721,8 @@ void consultaVeiculosEstado(tipoVeiculo veiculos[], int nVeiculos, int estado)
             break;
         }
     }
+<<<<<<< HEAD
+=======
+    printf("MA: %s", veiculos[posicao].matricula);
+>>>>>>> 22b5b7bcda2cf4b8453d58b47e20d0b9f88f186f
 }
