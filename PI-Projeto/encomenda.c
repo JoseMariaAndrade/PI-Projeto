@@ -25,6 +25,7 @@ void adicionarEncomendas(tipoEncomenda encomenda[], int *nEncomendas)
                 encomenda[i].numero = lerInteiro("\nNumero encomenda",0,0);
                 encomenda[i].peso = lerFloat("\nPeso da encomenda:",0,1000);
                 encomenda[i].estado = lerEstado('E');
+                (*nEncomendas)++;
             }
         }
     }

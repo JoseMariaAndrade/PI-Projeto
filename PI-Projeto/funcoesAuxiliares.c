@@ -154,6 +154,7 @@ char* lerMatricula(char Mensagem[MAX_CHARS], char* r)
 {
     int contadorNumeros=0, contadorLetras=0, a, b, controlo=0, tamanho;
     char parteMatricula[3], matricula[MATRICULA] = "";
+    memset(r, 0, 9);
     do
     {
         if((contadorNumeros==0 && contadorLetras==0) || (contadorNumeros==1 && contadorLetras==0))
@@ -167,21 +168,8 @@ char* lerMatricula(char Mensagem[MAX_CHARS], char* r)
                 contadorNumeros++;
                 tamanho = strlen(parteMatricula);
 
-                if (tamanho == 1)
-                {
-                    printf("\n String Vazia.");
-                }
-                else
-                {
-                    if(parteMatricula[tamanho-1] == '\n')
-                    {
-                        parteMatricula[tamanho-1] = '\0';
-                    }
-                    else
-                    {
-                        limparBufferStdin();
-                    }
-                }
+                limparBufferStdin();
+
                 strcat(matricula, parteMatricula);
                 if(strlen(matricula)<8)
                 {
@@ -237,21 +225,8 @@ char* lerMatricula(char Mensagem[MAX_CHARS], char* r)
                     contadorNumeros++;
                     tamanho = strlen(parteMatricula);
 
-                    if (tamanho == 1)
-                    {
-                        printf("\n String Vazia.");
-                    }
-                    else
-                    {
-                        if(parteMatricula[tamanho-1] == '\n')
-                        {
-                            parteMatricula[tamanho-1] = '\0';
-                        }
-                        else
-                        {
-                            limparBufferStdin();
-                        }
-                    }
+                    limparBufferStdin();
+
                     strcat(matricula, parteMatricula);
                     if(strlen(matricula)<8)
                     {
@@ -313,7 +288,9 @@ char* lerMatricula(char Mensagem[MAX_CHARS], char* r)
         }
     }
     while(controlo!=1);
+
     strcat(r, matricula);
+
     return r;
 }
 
