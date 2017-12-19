@@ -86,7 +86,7 @@ char opcao;
         printf("\n I - Inserir dados da ecomenda");
         printf("\n C - Consultar dados da ecomenda");
         printf("\n L - Listar dados das ecomendas");
-        printf("\n E - Eleminnar ecomenda");
+        printf("\n E - Eliminnar ecomenda");
         printf("\n A - Alterar destino de ecomenda devolvida");
         printf("\n V - Voltar ao menu principal");
         printf("\n Opcao: ");

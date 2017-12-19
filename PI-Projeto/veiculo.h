@@ -10,4 +10,9 @@ int maximoCarga(tipoVeiculo veiculos[], int nVeiculos);
 int procurarVeiculo(tipoVeiculo veiculos[], int nVeiculos, char matricula[]);
 void ordenarVeiculosEncomendasDecrescente(tipoVeiculo veiculos[], int nVeiculos);
 void mostarVeiculoEncomenda (tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas);
+void registarInicioViagemVeiculo(tipoVeiculo veiculos[], int nVeiculos);
+void registarRegressoVeiculo(tipoVeiculo veiculos[], int nVeiculos);
+float cargaVeiculo(tipoVeiculo veiculo, float cargaTotal);
+int escolhaAutomatica(tipoVeiculo veiculos[], int nVeiculos);
+void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encomendas[], int nEncomendas);
 #endif // VEICULO_H_INCLUDED

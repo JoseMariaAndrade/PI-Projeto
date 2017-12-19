@@ -11,6 +11,7 @@ void limparBufferStdin();
 int lerInteiro(char mensagem[MAX_CHARS], int numeroMinimo, int numeroMaximo);
 tipoData lerData(char mensagem[MAX_CHARS]);
 char* lerMatricula(char Mensagem[MAX_CHARS], char* r);
+float lerFloat(char mensagem[MAX_CHARS], int minimo, int maximo);
 void lerString(char mensagem[MAX_CHARS], char vetorChars[50], int maximoCaracteres);
 int lerEstado(char tipoEstado);
 void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas);

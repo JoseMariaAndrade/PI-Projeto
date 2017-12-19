@@ -3,10 +3,10 @@
 #include "encomenda.h"
 #include "funcoesAuxiliares.h"
 
-void adicionarEncomendas(tipoEncomenda encomenda[], int nEncomendas)
+void adicionarEncomendas(tipoEncomenda encomenda[], int *nEncomendas)
 {
     int restanteEncomendas, numero, i;
-    restanteEncomendas = MAX_ENCOMENDAS - nEncomendas;
+    restanteEncomendas = MAX_ENCOMENDAS - *nEncomendas;
 
     if (restanteEncomendas==0)
     {
@@ -18,12 +18,13 @@ void adicionarEncomendas(tipoEncomenda encomenda[], int nEncomendas)
 
         if(numero!=0)
         {
-            for (i=nEncomendas; i<numero; i++)
+            for (i=*nEncomendas; i<numero; i++)
             {
                 printf("\nInserir dados da encomenda:");
                 encomenda[i].numero = lerInteiro("\nNumero encomenda",0,0);
                 encomenda[i].peso = lerFloat("\nPeso da encomenda:",0,1000);
                 encomenda[i].estado = lerEstado('E');
+                (*nEncomendas)++;
             }
         }
     }

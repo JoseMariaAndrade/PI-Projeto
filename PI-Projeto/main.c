@@ -47,7 +47,7 @@ int main(void)
                 opcao = menuEcomendas();
                 switch(opcao){
                     case 'I':
-                        adicionarEncomendas(encomendas, nEncomendasRegistadas);
+                        adicionarEncomendas(encomendas, &nEncomendasRegistadas);
                         break;
                     case 'C':
                         break;
@@ -70,12 +70,15 @@ int main(void)
                 opcao = menuRegisto();
                 switch(opcao){
                     case 'C':
+                        carregarVeiculo(veiculos, nVeiculos, encomendas, nEncomendasRegistadas);
                         break;
                     case 'D':
                         break;
                     case 'I':
+                        registarInicioViagemVeiculo(veiculos, nVeiculos);
                         break;
                     case 'R':
+                        registarRegressoVeiculo(veiculos, nVeiculos);
                         break;
                     case 'V':
                         break;
