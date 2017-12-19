@@ -131,19 +131,16 @@ void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas)
     }
 }
 
-<<<<<<< HEAD
-void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float * perEncomendasEntregues)
+/*void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float * perEncomendasEntregues)
 {
     int somaPesos, contPositivas, i;
-    void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues)
-=======
+    void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues)*/
 void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues){
     int contPositivas, i;
     float somaPesos;
     somaPesos = 0;
     contPositivas = 0;
     if(nEncomendasRegistadas == 0)
->>>>>>> 22b5b7bcda2cf4b8453d58b47e20d0b9f88f186f
     {
         int contPositivas, i;
         float somaPesos;
