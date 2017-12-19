@@ -11,4 +11,6 @@ void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas);
 void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float * perEncomendasEntregues);
 void mostrarEncomendas(tipoEncomenda encomenda[MAX_ENCOMENDAS], int nEncomendasRegistadas);
 
+
+int contagemEncomendasEstado(tipoEncomenda encomendas[], int nEncomendas, int estado);
 #endif // ENCOMENDA_H_INCLUDED
