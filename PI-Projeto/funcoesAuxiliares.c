@@ -397,7 +397,7 @@ void escreverFicheiroLog(tipoEncomenda encomenda){
 }
 
 void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int *nVeiculos, int *nEncomendas){
-    int quantVeiculos, quantEncomendas;
+    int i;
     *nEncomendas = 0;
     *nVeiculos = 0;
 
@@ -407,14 +407,34 @@ void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int 
         perror("\n Erro ao abrir ficheiro para leitura");
     }
     else{
-
-
-
-
-
-
-        if(fclose(file) == EOF){
-            perror("\n Erro ao fechar ficheiro ");
+        fread(nVeiculos,sizeof(int),1,file);
+        fread(nEncomendas,sizeof(int),1,file);
+      /*  for(i=0; i<&(*nVeiculos); i++)
+        {
+            fread(veiculos,sizeof(tipoVeiculo),10,file);
+            fread(veiculos[i].matricula,sizeof(tipoVeiculo),10,file);
+            fread(veiculos[i].dataFabrico.dia,sizeof(tipoVeiculo),10,file);
+            fread(veiculos[i].dataFabrico.mes,sizeof(tipoVeiculo),10,file);
+            fread(veiculos[i].dataFabrico.ano,sizeof(tipoVeiculo),10,file);
+            fread(veiculos[i].carga,sizeof(tipoVeiculo),10,file);
+            fread(veiculos[i].viagens,sizeof(tipoVeiculo),10,file);
+            fread(veiculos[i].encomendas,sizeof(tipoVeiculo),10,file);
         }
+
+        for(i=0; i<nEncomendas; i++)
+        {
+            fread(encomendas,sizeof(tipoEncomenda),100,file);
+            fread(encomendas[i].numero,sizeof(tipoEncomenda),100,file);
+            fread(encomendas[i].peso,sizeof(tipoEncomenda),100,file);
+            fread(encomendas[i].estado,sizeof(tipoEncomenda),100,file);
+            fread(encomendas[i].destino,sizeof(tipoEncomenda),100,file);
+            fread(encomendas[i].dataRegisto.dia,encomendas[i].dataRegisto.mes,encomendas[i].dataRegisto.ano,sizeof(tipoEncomenda),100,file);
+            fread(encomendas[i].dataEntrega.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano,sizeof(tipoEncomenda),100,file);
+            fread(encomendas[i].dataDevolucao.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano,sizeof(tipoEncomenda),100,file);
+            fread(encomendas[i].observacoes,sizeof(tipoEncomenda),100,file);
+        }*/
+    }
+    if(fclose(file) == EOF){
+            perror("\n Erro ao fechar ficheiro ");
     }
 }

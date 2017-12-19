@@ -10,7 +10,8 @@ void eliminarEncomeda(tipoEncomenda encomendas[], int *nEncomendas);
 void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas);
 void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float * perEncomendasEntregues);
 void mostrarEncomendas(tipoEncomenda encomenda[MAX_ENCOMENDAS], int nEncomendasRegistadas);
-
-
 int contagemEncomendasEstado(tipoEncomenda encomendas[], int nEncomendas, int estado);
+void maiorDestino(tipoEncomenda encomendas[], int nEncomendas);
+void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[], int nEncomendas);
+
 #endif // ENCOMENDA_H_INCLUDED

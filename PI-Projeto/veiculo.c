@@ -61,7 +61,7 @@ void mostrarVeiculos(tipoVeiculo veiculo[], int nVeiculos)
     if(nVeiculos>0)
     {
         printf("\nVeiculos:");
-        printf("\nMatricula \t Estado \t Carga \t Viagens \t Encomendas \t Data Fabrico");
+        printf("\nMatricula \t Estado \t Carga \t\t Viagens \t Encomendas \t Data Fabrico");
 
         for(i=0; i<nVeiculos; i++)
         {
@@ -70,19 +70,19 @@ void mostrarVeiculos(tipoVeiculo veiculo[], int nVeiculos)
             switch(veiculo[i].estado)
             {
             case 0:
-                printf("\t\t Disponivel ");
+                printf("\t Disponivel ");
                 break;
             case 1:
-                printf("\t\t A Transportar ");
+                printf("\t A Transportar ");
                 break;
             case 2:
-                printf("\t\t Regresso ");
+                printf("\t Regresso ");
                 break;
             case 3:
-                printf("\t\t Avariado ");
+                printf("\t Avariado ");
                 break;
             }
-            printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculo[i].carga, veiculo[i].viagens, veiculo[i].encomendas, veiculo[i].dataFabrico.dia, veiculo[i].dataFabrico.mes, veiculo[i].dataFabrico.ano);
+            printf("\t %.2f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculo[i].carga, veiculo[i].viagens, veiculo[i].encomendas, veiculo[i].dataFabrico.dia, veiculo[i].dataFabrico.mes, veiculo[i].dataFabrico.ano);
         }
     }
     else
@@ -359,7 +359,7 @@ void mostrarVeiculosMenosViagens(tipoVeiculo veiculos[], int nVeiculos)
             menosViagens = veiculos[i].viagens;
         }
     }
-    printf("Veiculo(s) com meno(s) viagens efetuadas");
+    printf("\nVeiculo(s) com meno(s) viagens efetuadas");
     for(i=0; i<nVeiculos; i++)
     {
         if(veiculos[i].viagens = menosViagens)

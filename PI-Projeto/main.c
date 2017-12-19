@@ -117,10 +117,11 @@ strcpy(veiculos[3].matricula,"22-23-DD");
             break;
         case 'S':
              calculos(encomendas, nEncomendasRegistadas, &mediaPesos, &percEcomendasEntregues);
-             printf("\n Peso medio das encomendas: %.2f", mediaPesos);
-             printf("\n Percentagem de encomendas entregues: %.2f", percEcomendasEntregues);
+             printf("\nPeso medio das encomendas: %.2f", mediaPesos);
+             printf("\nPercentagem de encomendas entregues: %.2f", percEcomendasEntregues);
              calculosVeiculos(veiculos, nVeiculos, &mediaCarga);
-             printf("\n Carga media dos veiculos: %.2f", mediaCarga);
+             printf("\nCarga media dos veiculos: %.2f", mediaCarga);
+             maiorDestino(encomendas, nEncomendasRegistadas);
              mostrarVeiculosMenosViagens(veiculos, nVeiculos);
             break;
         case 'G':
@@ -129,7 +130,7 @@ strcpy(veiculos[3].matricula,"22-23-DD");
              contSave++;
             break;
         case 'L':
-            //lerFicheiroTexto
+            lerFicheiroBinario(veiculos, encomendas, &nVeiculos, &nEncomendasRegistadas);
             break;
         case 'F':
             if(contSave == 0){
