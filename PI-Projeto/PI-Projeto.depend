@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1513707156 source:c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\encomenda.c
+1513714777 source:c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\encomenda.c
 	<stdio.h>
 	<string.h>
+	<time.h>
 	"encomenda.h"
 	"funcoesAuxiliares.h"
 
@@ -22,11 +23,11 @@
 	"veiculo.h"
 	"funcoesAuxiliares.h"
 
-1513700970 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\estruturas.h
+1513711668 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\estruturas.h
 
 1513267280 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\menu.h
 
-1513707171 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\veiculo.h
+1513714791 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\veiculo.h
 	"estruturas.h"
 
 1513699616 source:c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\menu.c
@@ -92,7 +93,7 @@
 	"estruturas.h"
 	"funcoesAuxiliares.h"
 
-1513686726 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\encomenda.h
+1513707899 c:\users\luís freitas\desktop\projeto\pi-projeto\pi-projeto\encomenda.h
 	"estruturas.h"
 	"funcoesAuxiliares.h"
 

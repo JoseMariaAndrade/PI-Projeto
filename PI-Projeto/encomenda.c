@@ -131,9 +131,6 @@ void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas)
     }
 }
 
-void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float * perEncomendasEntregues)
-{
-    int somaPesos, contPositivas, i;
 void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues){
     int contPositivas, i;
     float somaPesos;
@@ -194,7 +191,6 @@ void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendas
     }
 }
 
-void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[], int nEncomendas){
 void consultaEncomendas(tipoEncomenda encomendas[], int nEncomendas, char tipoPesquisa)
 {
     int contador=-1, index[MAX_ENCOMENDAS], i, estado, numero;
@@ -390,7 +386,7 @@ int contagemEncomendasEstado(tipoEncomenda encomendas[], int nEncomendas, int es
     return contadorEncomendas;
 }
 
-void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[],tipoClone destinos[], int nEncomendas){
+void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[], int nEncomendas){
     int i, invariavel;
     tipoData data = lerData("\n Data: ");
     for(i=0;i<nEncomendas;i++){
@@ -399,4 +395,44 @@ void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[],tipoClone destin
         }
     }
     printf("\n Na data %d/%d/%d houve %d encomendas entregues", encomendas[i].dataEntrega.dia, encomendas[i].dataEntrega.mes, encomendas[i].dataEntrega.ano, invariavel);
+}
+
+void maiorDestino(tipoEncomenda encomendas[], int nEncomendas){
+    int maxDestino = 0, i, j, contDestinos = 0, cont;
+    char destinos[100][DESTINO];
+    for(i = 0;i<nEncomendas;i++){
+        cont = 0;
+        for(j = 0;j<nEncomendas;j++){
+            if(strcmp(encomendas[i].destino, encomendas[j].destino) == 0){
+                cont++;
+            }
+        }
+        if(cont > maxDestino){
+            maxDestino = cont;
+        }
+    }
+    for(i = 0;i<nEncomendas;i++){
+        cont = 0;
+        for(j = 0;j<nEncomendas;j++){
+            if(strcmp(encomendas[i].destino, encomendas[j].destino) == 0){
+                cont++;
+            }
+        }
+        if(cont == maxDestino){
+            int existeDestino = 1;
+            for(j=0;j<contDestinos;j++){
+                if(strcmp(encomendas[i].destino, encomendas[j].destino) == 0){
+                    existeDestino = 0;
+                    break;
+                }
+            }
+            if(existeDestino){
+                strcpy(destinos[contDestinos], encomendas[i].destino);
+            }
+        }
+    }
+    printf("\nO(s) destino(s) com maior encomendas entregues e: ");
+    for(j=0;j<contDestinos;j++){
+        printf("\n %s", destinos[j]);
+    }
 }
