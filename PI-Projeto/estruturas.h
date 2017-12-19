@@ -46,4 +46,9 @@ typedef struct
     estadoEncomenda estado;
 } tipoEncomenda;
 
+typedef struct{
+    char destino[DESTINO];
+    int contador;
+} tipoClone;
+
 #endif // ESTRUTURAS_H_INCLUDED

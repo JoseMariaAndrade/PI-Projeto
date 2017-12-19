@@ -326,6 +326,37 @@ void mostarVeiculoEncomenda (tipoVeiculo veiculos[], tipoEncomenda encomendas[],
     }
 }
 
+<<<<<<< HEAD
+void calculosVeiculos(tipoVeiculo veiculos[], int nVeiculos, float *mediaCarga){
+    int i;
+    float somaPesos = 0;
+    if(nVeiculos == 0){
+        printf("\nNao existem veiculos registados");
+        *mediaCarga = 0;
+    }else{
+        for(i=0; i<nVeiculos; i++){
+            if(veiculos[i].estado == 1);
+            somaPesos = somaPesos + veiculos[i].carga;
+        }
+        *mediaCarga = somaPesos / nVeiculos;
+    }
+}
+
+void mostrarVeiculosMenosViagens(tipoVeiculo veiculos[], int nVeiculos){
+    int i;
+    int menosViagens = veiculos[0].viagens;
+    for(i=1;i < nVeiculos;i++){
+        if(menosViagens > veiculos[i].viagens){
+            menosViagens = veiculos[i].viagens;
+        }
+    }
+    printf("Veiculo(s) com meno(s) viagens efetuadas");
+    for(i=0;i<nVeiculos;i++){
+        if(veiculos[i].viagens = menosViagens){
+            printf("\n Matricula - %s Viagens - %d", veiculos[i].matricula, menosViagens);
+        }
+    }
+=======
 void registarInicioViagemVeiculo(tipoVeiculo veiculos[], int nVeiculos)
 {
     int posicao;
@@ -640,4 +671,10 @@ void consultaVeiculosEstado(tipoVeiculo veiculos[], int nVeiculos, int estado)
             break;
         }
     }
+<<<<<<< HEAD
+=======
+
+    printf("MA: %s", veiculos[posicao].matricula);
+>>>>>>> 11895a032f979bcc9c4ea88e2dfb49233fcbbd81
+>>>>>>> 590d9f7698f3fc29cb85712571d9896692094616
 }

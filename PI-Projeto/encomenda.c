@@ -1,5 +1,9 @@
 #include <stdio.h>
+<<<<<<< HEAD
 #include <string.h>
+=======
+#include <time.h>
+>>>>>>> 590d9f7698f3fc29cb85712571d9896692094616
 
 #include "encomenda.h"
 #include "funcoesAuxiliares.h"
@@ -129,9 +133,15 @@ void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas)
     }
 }
 
+<<<<<<< HEAD
 void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float * perEncomendasEntregues)
 {
     int somaPesos, contPositivas, i;
+=======
+void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues){
+    int contPositivas, i;
+    float somaPesos;
+>>>>>>> 590d9f7698f3fc29cb85712571d9896692094616
     somaPesos = 0;
     contPositivas = 0;
     if(nEncomendasRegistadas == 0)
@@ -189,6 +199,7 @@ void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendas
     }
 }
 
+<<<<<<< HEAD
 void consultaEncomendas(tipoEncomenda encomendas[], int nEncomendas, char tipoPesquisa)
 {
     int contador=-1, index[MAX_ENCOMENDAS], i, estado, numero;
@@ -382,4 +393,15 @@ int contagemEncomendasEstado(tipoEncomenda encomendas[], int nEncomendas, int es
     }
 
     return contadorEncomendas;
+=======
+void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[],tipoClone destinos[], int nEncomendas){
+    int i, invariavel;
+    data = lerData("\n Data: ");
+    for(i=0;i<nEncomendas;i++){
+        if(data = encomendas[i].dataEntrega){
+            invariavel++;
+        }
+    }
+    printf("\n Na data %d/%d/%d houve %d encomendas entregues", encomendas[i].dataEntrega.dia, encomendas[i].dataEntrega.mes, encomendas[i].dataEntrega.ano, invariavel);
+>>>>>>> 590d9f7698f3fc29cb85712571d9896692094616
 }
