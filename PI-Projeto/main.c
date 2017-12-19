@@ -8,7 +8,6 @@
 
 int main(void)
 {
-    tipoClone destinos[MAX_ENCOMENDAS];
     tipoVeiculo veiculos[MAX_VEICULOS];
     tipoEncomenda encomendas[MAX_ENCOMENDAS];
     int nVeiculos=0, nEncomendasRegistadas=0, nEcomendasDevolvidas=0, contSave=0;

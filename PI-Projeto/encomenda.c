@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <time.h>
+#include <string.h>
 
 #include "encomenda.h"
 #include "funcoesAuxiliares.h"
@@ -163,11 +163,11 @@ void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendas
     }
 }
 
-void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[],tipoClone destinos[], int nEncomendas){
+void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[], int nEncomendas){
     int i, invariavel;
-    data = lerData("\n Data: ");
+    tipoData data = lerData("\n Data: ");
     for(i=0;i<nEncomendas;i++){
-        if(data = encomendas[i].dataEntrega){
+        if(data.dia == encomendas[i].dataEntrega.dia && data.mes == encomendas[i].dataEntrega.mes && data.ano == encomendas[i].dataEntrega.ano){
             invariavel++;
         }
     }
