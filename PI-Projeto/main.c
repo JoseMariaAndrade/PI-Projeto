@@ -13,6 +13,36 @@ int main(void)
     int nVeiculos=0, nEncomendasRegistadas=0, nEcomendasDevolvidas=0, contSave=0;
     float percEcomendasEntregues=0.0, mediaPesos = 0, mediaCarga = 0;
     char opcao, opcao1;
+/*
+    veiculos[0].carga=1000;
+    veiculos[0].encomendas=2;
+    veiculos[0].viagens=1;
+    veiculos[0].estado=0;
+    strcpy(veiculos[0].matricula,"22-22-DD");
+
+    veiculos[1].carga=100;
+    veiculos[1].encomendas=50;
+    veiculos[1].viagens=1;
+    veiculos[1].estado=0;
+strcpy(veiculos[1].matricula,"22-22-DS");
+    veiculos[2].carga=1000;
+    veiculos[2].encomendas=3;
+    veiculos[2].viagens=1;
+    veiculos[2].estado=1;
+    strcpy(veiculos[2].matricula,"23-22-DD");
+    veiculos[3].carga=1000;
+    veiculos[3].encomendas=250;
+    veiculos[3].viagens=1;
+    veiculos[3].estado=1;
+strcpy(veiculos[3].matricula,"22-23-DD");
+    encomendas[0].numero=1;
+    encomendas[0].estado=0;
+    encomendas[1].numero=13;
+    encomendas[1].estado=0;
+
+    encomendas[2].numero=132;
+    encomendas[2].estado=0;*/
+
 
     do
     {

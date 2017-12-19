@@ -134,29 +134,31 @@ void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas)
 void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float * perEncomendasEntregues)
 {
     int somaPesos, contPositivas, i;
-void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues){
-    int contPositivas, i;
-    float somaPesos;
-    somaPesos = 0;
-    contPositivas = 0;
-    if(nEncomendasRegistadas == 0)
+    void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues)
     {
-        printf("\n Nao existem encomendas registadas");
-        *mediaPesos = 0.0;
-        *perEncomendasEntregues = 0.0;
-    }
-    else
-    {
-        for(i=0; i<nEncomendasRegistadas; i++)
+        int contPositivas, i;
+        float somaPesos;
+        somaPesos = 0;
+        contPositivas = 0;
+        if(nEncomendasRegistadas == 0)
         {
-            somaPesos = somaPesos + encomendas[i].peso;
-            if(encomendas[i].estado == 2)
-            {
-                contPositivas++;
-            }
+            printf("\n Nao existem encomendas registadas");
+            *mediaPesos = 0.0;
+            *perEncomendasEntregues = 0.0;
         }
-        *mediaPesos = (float) somaPesos / nEncomendasRegistadas;
-        *perEncomendasEntregues = contPositivas * 100.0 / nEncomendasRegistadas;
+        else
+        {
+            for(i=0; i<nEncomendasRegistadas; i++)
+            {
+                somaPesos = somaPesos + encomendas[i].peso;
+                if(encomendas[i].estado == 2)
+                {
+                    contPositivas++;
+                }
+            }
+            *mediaPesos = (float) somaPesos / nEncomendasRegistadas;
+            *perEncomendasEntregues = contPositivas * 100.0 / nEncomendasRegistadas;
+        }
     }
 }
 

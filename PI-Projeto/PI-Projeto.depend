@@ -43,24 +43,25 @@
 	"funcoesAuxiliares.h"
 	"encomenda.h"
 
-1513705331 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\encomenda.c
+1513711750 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\encomenda.c
 	<stdio.h>
 	<string.h>
+	<time.h>
 	"encomenda.h"
 	"funcoesAuxiliares.h"
 
-1513684901 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\funcoesauxiliares.c
+1513707587 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\funcoesauxiliares.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>
 	"funcoesAuxiliares.h"
 
-1513683725 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\funcoesauxiliares.h
+1513707587 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\funcoesauxiliares.h
 	"estruturas.h"
 
-1513622339 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\estruturas.h
+1513707941 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\estruturas.h
 
-1513683091 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\main.c
+1513712827 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\main.c
 	<stdio.h>
 	<stdlib.h>
 	"encomenda.h"
@@ -70,7 +71,7 @@
 
 1513534246 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\menu.h
 
-1513700553 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\veiculo.h
+1513711763 d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\veiculo.h
 	"estruturas.h"
 
 1513635140 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\menu.c
@@ -79,7 +80,7 @@
 	"funcoesAuxiliares.h"
 	"menu.h"
 
-1513705615 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\veiculo.c
+1513714009 source:d:\documentos\onedrive - ipleiria\ei\1_ano\programacao_i\pi-projeto\pi-projeto\veiculo.c
 	<stdio.h>
 	<string.h>
 	<ctype.h>

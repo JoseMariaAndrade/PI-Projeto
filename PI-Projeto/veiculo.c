@@ -326,33 +326,44 @@ void mostarVeiculoEncomenda (tipoVeiculo veiculos[], tipoEncomenda encomendas[],
     }
 }
 
-void calculosVeiculos(tipoVeiculo veiculos[], int nVeiculos, float *mediaCarga){
+void calculosVeiculos(tipoVeiculo veiculos[], int nVeiculos, float *mediaCarga)
+{
     int i;
     float somaPesos = 0;
-    if(nVeiculos == 0){
+    if(nVeiculos == 0)
+    {
         printf("\nNao existem veiculos registados");
         *mediaCarga = 0;
-    }else{
-        for(i=0; i<nVeiculos; i++){
-            if(veiculos[i].estado == 1){
-            somaPesos = somaPesos + veiculos[i].carga;
-        }
-        *mediaCarga = somaPesos / nVeiculos;
+    }
+    else
+    {
+        for(i=0; i<nVeiculos; i++)
+        {
+            if(veiculos[i].estado == 1)
+            {
+                somaPesos = somaPesos + veiculos[i].carga;
+            }
+            *mediaCarga = somaPesos / nVeiculos;
         }
     }
 }
 
-void mostrarVeiculosMenosViagens(tipoVeiculo veiculos[], int nVeiculos){
+void mostrarVeiculosMenosViagens(tipoVeiculo veiculos[], int nVeiculos)
+{
     int i;
     int menosViagens = veiculos[0].viagens;
-    for(i=1;i < nVeiculos;i++){
-        if(menosViagens > veiculos[i].viagens){
+    for(i=1; i < nVeiculos; i++)
+    {
+        if(menosViagens > veiculos[i].viagens)
+        {
             menosViagens = veiculos[i].viagens;
         }
     }
     printf("Veiculo(s) com meno(s) viagens efetuadas");
-    for(i=0;i<nVeiculos;i++){
-        if(veiculos[i].viagens = menosViagens){
+    for(i=0; i<nVeiculos; i++)
+    {
+        if(veiculos[i].viagens = menosViagens)
+        {
             printf("\n Matricula - %s Viagens - %d", veiculos[i].matricula, menosViagens);
         }
     }
@@ -451,7 +462,7 @@ float PercentagemCargaVeiculo(float cargaVeiculo, float cargaTotal)
 
 void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encomendas[], int nEncomendas)
 {
-    int posicaoVeiculo, posicaoEncomendas, contadorEncomendas=0, i, index[MAX_ENCOMENDAS], contadorVeiculos=-1, numero;
+    int posicaoVeiculo, posicaoEncomendas, contadorEncomendas=0, i, index[MAX_ENCOMENDAS], contadorVeiculos=-1, numero, contador=-1;;
     float somaCarga=0, percentagemCarga=0;
     char matricula[MATRICULA], opcao;
     char str[MATRICULA] = {'\0'};
@@ -513,21 +524,19 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
 
             if(contadorEncomendas!=0)
             {
-                contadorEncomendas=0;
 
                 for(i=0; i<nEncomendas; i++)
                 {
                     if(encomendas[i].estado == 0 || encomendas[i].estado == 3)
                     {
-                        contadorEncomendas++;
-                        index[contadorEncomendas]=i;
+                        contador++;
+                        index[contador]=i;
                     }
                 }
 
-                printf("%d",contadorEncomendas);
-
                 printf("\n------------- Encomendas -------------");
                 printf("\n Numero de Registo \t Data de registo \t Peso(Kg) \t Destino \t Estado \t Data de Entrega(Ou devolucao) \t Conjunto de Obrevacoes");
+
                 for(i=0; i<contadorEncomendas; i++)
                 {
                     printf("\n%d \t %2d/%2d/%4d \t %f \t %s \t", encomendas[index[i]].numero, encomendas[index[i]].dataRegisto.dia, encomendas[index[i]].dataRegisto.mes, encomendas[index[i]].dataRegisto.ano, encomendas[index[i]].peso, encomendas[index[i]].destino);
@@ -551,7 +560,7 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
 
                 do
                 {
-                    numero = lerInteiro("\nInsira o numero da encomenda:", 0, 0);
+                    numero = lerInteiro("\nInsira o numero da encomenda", 0, 0);
 
                     posicaoEncomendas = procurarEncomendas(encomendas, nEncomendas, numero);
 
@@ -572,6 +581,47 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
 
                     if(percentagemCarga>=0.8)
                     {
+                        if(percentagemCarga>=1)
+                        {
+                            printf("\nA encomenda com o numero %d e demasido pesada para transportada pelo veiculo com a matricula %s", encomendas[posicaoVeiculo].numero, veiculos[posicaoEncomendas].matricula);
+
+                            somaCarga = somaCarga - encomendas[posicaoEncomendas].peso;
+                            percentagemCarga = PercentagemCargaVeiculo(veiculos[posicaoVeiculo].carga, somaCarga);
+                            contadorEncomendas++;
+                        }
+                        else
+                        {
+                            do
+                            {
+                                printf("\n Deseja que o veiculo com a matricula %s inicie viagem:", veiculos[posicaoVeiculo].matricula);
+                                printf("\n S - Sim");
+                                printf("\n N - Nao");
+                                printf("\n Opcao: ");
+
+                                scanf("%c", &opcao);
+                                limparBufferStdin();
+                                opcao = toupper(opcao);
+
+                                if(opcao != 'S' && opcao != 'N')
+                                {
+                                    printf("\n Opcao invalida");
+                                }
+                            }
+                            while(opcao != 'S' && opcao != 'N');
+
+                            switch(opcao)
+                            {
+                            case 'S':
+                                numero=0;
+                                veiculos[posicaoEncomendas].estado=1;
+                                printf("\nO veiculo com a matricula %s vai inicar viagem.", veiculos[posicaoVeiculo].matricula);
+                                break;
+                            case 'N':
+                                encomendas[posicaoEncomendas].estado=1;
+                                strcpy(encomendas[posicaoEncomendas].matricula, veiculos[posicaoVeiculo].matricula);
+                                break;
+                            }
+                        }
 
                     }
                     else
@@ -580,8 +630,7 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
                         strcpy(encomendas[posicaoEncomendas].matricula, veiculos[posicaoVeiculo].matricula);
                     }
 
-                    contadorEncomendas = contagemEncomendasEstado(encomendas, nEncomendas, 0);
-                    contadorEncomendas = contadorEncomendas + contagemEncomendasEstado(encomendas, nEncomendas, 3);
+                    contadorEncomendas--;
 
                     if(contadorEncomendas==0)
                     {
@@ -672,9 +721,4 @@ void consultaVeiculosEstado(tipoVeiculo veiculos[], int nVeiculos, int estado)
             break;
         }
     }
-<<<<<<< HEAD
-
-    printf("MA: %s", veiculos[posicao].matricula);
-=======
->>>>>>> df2ef7323eadaa23e6210f7d1090cc6da8f39209
 }
