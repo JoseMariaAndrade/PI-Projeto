@@ -17,4 +17,14 @@ void registarRegressoVeiculo(tipoVeiculo veiculos[], int nVeiculos);
 float cargaVeiculo(tipoVeiculo veiculo, float cargaTotal);
 int escolhaAutomatica(tipoVeiculo veiculos[], int nVeiculos);
 void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encomendas[], int nEncomendas);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+void consultaVeiculosEstado(tipoVeiculo veiculos[], int nVeiculos, int estado);
+=======
+>>>>>>> 11895a032f979bcc9c4ea88e2dfb49233fcbbd81
+>>>>>>> 590d9f7698f3fc29cb85712571d9896692094616
+>>>>>>> df2ef7323eadaa23e6210f7d1090cc6da8f39209
 #endif // VEICULO_H_INCLUDED
