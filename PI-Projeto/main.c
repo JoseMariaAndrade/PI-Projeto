@@ -82,7 +82,7 @@ strcpy(veiculos[3].matricula,"22-23-DD");
                     case 'C':
                         break;
                     case 'L':
-                        mostrarEncomendas(encomendas,nEncomendasRegistadas);
+                        mostrarEncomendas(encomendas, nEncomendasRegistadas);
                         break;
                     case 'E':
                         eliminarEncomeda(encomendas, &nEncomendasRegistadas);
@@ -103,6 +103,7 @@ strcpy(veiculos[3].matricula,"22-23-DD");
                         carregarVeiculo(veiculos, nVeiculos, encomendas, nEncomendasRegistadas);
                         break;
                     case 'D':
+                        descarregarVeiculo(veiculos, nVeiculos, encomendas, nEncomendasRegistadas);
                         break;
                     case 'I':
                         registarInicioViagemVeiculo(veiculos, nVeiculos);

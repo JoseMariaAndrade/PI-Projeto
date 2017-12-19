@@ -121,7 +121,7 @@ void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas)
         }
         else
         {
-            printf("Nao pode eliminar a encomenda %d", numeroEncomenda);
+            printf("Nao pode alterar o destino da encomenda %d", numeroEncomenda);
         }
 
     }
@@ -177,7 +177,7 @@ void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendas
         printf("\n Numero de Registo \t Data de registo \t Peso(Kg) \t Destino \t Estado \t Data de Entrega(Ou devolucao) \t Conjunto de Obrevacoes");
         for(i=0; i<nEncomendasRegistadas; i++)
         {
-            printf("\n%d \t %2d/%2d/%4d \t %f \t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
+            printf("\n%d \t %2d/%2d/%4d \t %.2f \t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
             switch(encomendas[i].estado)
             {
             case 0:
@@ -233,7 +233,7 @@ void consultaEncomendas(tipoEncomenda encomendas[], int nEncomendas, char tipoPe
                 {
                     for(i=0; i<contador; i++)
                     {
-                        printf("\n%d \t %2d/%2d/%4d \t %f \t %s \t", encomendas[index[i]].numero, encomendas[index[i]].dataRegisto.dia, encomendas[index[i]].dataRegisto.mes, encomendas[index[i]].dataRegisto.ano, encomendas[index[i]].peso, encomendas[index[i]].destino);
+                        printf("\n%d \t %2d/%2d/%4d \t %.2f \t %s \t", encomendas[index[i]].numero, encomendas[index[i]].dataRegisto.dia, encomendas[index[i]].dataRegisto.mes, encomendas[index[i]].dataRegisto.ano, encomendas[index[i]].peso, encomendas[index[i]].destino);
                         switch(encomendas[index[i]].estado)
                         {
                         case 0:
@@ -282,7 +282,7 @@ void consultaEncomendas(tipoEncomenda encomendas[], int nEncomendas, char tipoPe
                 {
                     for(i=0; i<contador; i++)
                     {
-                        printf("\n%d \t %2d/%2d/%4d \t %f \t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
+                        printf("\n%d \t %2d/%2d/%4d \t %.2f \t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
                         switch(encomendas[i].estado)
                         {
                         case 0:
@@ -348,7 +348,7 @@ void consultaEncomendas(tipoEncomenda encomendas[], int nEncomendas, char tipoPe
                     printf("\n Numero de Registo \t Data de registo \t Peso(Kg) \t Destino \t Estado(0 - Registada,1 - Carregada,2 - Entregue,3 - Devolvida) \t Data de Entrega(Ou devoluçao) \t Conjunto de Obrevaçoes");
                     for(i=0; i<contador; i++)
                     {
-                        printf("\n%d \t %2d/%2d/%4d \t %f \t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
+                        printf("\n%d \t %2d/%2d/%4d \t %.2f \t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
                         switch(encomendas[i].estado)
                         {
                         case 0:
@@ -389,6 +389,21 @@ int contagemEncomendasEstado(tipoEncomenda encomendas[], int nEncomendas, int es
     for(i=0; i<nEncomendas; i++)
     {
         if(encomendas[i].estado == estado)
+        {
+            contadorEncomendas++;
+        }
+    }
+
+    return contadorEncomendas;
+}
+
+int contagemEncomendasEstadoMatricula(tipoEncomenda encomendas[], int nEncomendas, int estado, char matricula[MATRICULA])
+{
+    int contadorEncomendas=0, i;
+
+    for(i=0; i<nEncomendas; i++)
+    {
+        if(encomendas[i].estado == estado && strcmp(encomendas[i].matricula,matricula)==0)
         {
             contadorEncomendas++;
         }

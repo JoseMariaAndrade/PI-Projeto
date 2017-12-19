@@ -26,7 +26,7 @@ void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos)
             for (i=0; i<numero; i++)
             {
                 printf("\nInserir dados do veiculo:");
-                veiculo[*nVeiculos].carga=lerInteiro("\nCarga",10, 10000);
+                veiculo[*nVeiculos].carga=lerInteiro("\nCarga",10, 10000000);
                 veiculo[*nVeiculos].viagens=0;
                 veiculo[*nVeiculos].encomendas=0;
                 veiculo[*nVeiculos].dataFabrico=lerData("\nInserir Data de Fabrico do veiculo:");
@@ -70,19 +70,19 @@ void mostrarVeiculos(tipoVeiculo veiculo[], int nVeiculos)
             switch(veiculo[i].estado)
             {
             case 0:
-                printf("\t\t Disponivel ");
+                printf("\t Disponivel ");
                 break;
             case 1:
-                printf("\t\t A Transportar ");
+                printf("\t A Transportar ");
                 break;
             case 2:
-                printf("\t\t Regresso ");
+                printf("\t Regresso ");
                 break;
             case 3:
-                printf("\t\t Avariado ");
+                printf("\t Avariado ");
                 break;
             }
-            printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculo[i].carga, veiculo[i].viagens, veiculo[i].encomendas, veiculo[i].dataFabrico.dia, veiculo[i].dataFabrico.mes, veiculo[i].dataFabrico.ano);
+            printf("\t %.2f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculo[i].carga, veiculo[i].viagens, veiculo[i].encomendas, veiculo[i].dataFabrico.dia, veiculo[i].dataFabrico.mes, veiculo[i].dataFabrico.ano);
         }
     }
     else
@@ -124,20 +124,20 @@ void consultaVeiculos(tipoVeiculo veiculos[], int nVeiculos, char tipoPesquisa)
                     switch(veiculos[index[i]].estado)
                     {
                     case 0:
-                        printf("\t\t Disponivel ");
+                        printf("\t Disponivel ");
                         break;
                     case 1:
-                        printf("\t\t A Transportar ");
+                        printf("\t A Transportar ");
                         break;
                     case 2:
-                        printf("\t\t Regresso ");
+                        printf("\t Regresso ");
                         break;
                     case 3:
-                        printf("\t\t Avariado ");
+                        printf("\t Avariado ");
                         break;
                     }
 
-                    printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
+                    printf("\t %.2f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
                 }
             }
             else
@@ -173,20 +173,20 @@ void consultaVeiculos(tipoVeiculo veiculos[], int nVeiculos, char tipoPesquisa)
                     switch(veiculos[index[i]].estado)
                     {
                     case 0:
-                        printf("\t\t Disponivel ");
+                        printf("\t Disponivel ");
                         break;
                     case 1:
-                        printf("\t\t A Transportar ");
+                        printf("\t A Transportar ");
                         break;
                     case 2:
-                        printf("\t\t Regresso ");
+                        printf("\t Regresso ");
                         break;
                     case 3:
-                        printf("\t\t Avariado ");
+                        printf("\t Avariado ");
                         break;
                     }
 
-                    printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
+                    printf("\t %.2f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
                 }
             }
             else
@@ -305,20 +305,20 @@ void mostarVeiculoEncomenda (tipoVeiculo veiculos[], tipoEncomenda encomendas[],
         switch(veiculos[posicao].estado)
         {
         case 0:
-            printf("\t\t Disponivel ");
+            printf("\t Disponivel ");
             break;
         case 1:
-            printf("\t\t A Transportar ");
+            printf("\t A Transportar ");
             break;
         case 2:
-            printf("\t\t Regresso ");
+            printf("\t Regresso ");
             break;
         case 3:
-            printf("\t\t Avariado ");
+            printf("\t Avariado ");
             break;
         }
 
-        printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[posicao].carga, veiculos[posicao].viagens, veiculos[posicao].encomendas, veiculos[posicao].dataFabrico.dia, veiculos[posicao].dataFabrico.mes, veiculos[posicao].dataFabrico.ano);
+        printf("\t %.2f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[posicao].carga, veiculos[posicao].viagens, veiculos[posicao].encomendas, veiculos[posicao].dataFabrico.dia, veiculos[posicao].dataFabrico.mes, veiculos[posicao].dataFabrico.ano);
     }
     else
     {
@@ -539,7 +539,7 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
 
                 for(i=0; i<contadorEncomendas; i++)
                 {
-                    printf("\n%d \t %2d/%2d/%4d \t %f \t %s \t", encomendas[index[i]].numero, encomendas[index[i]].dataRegisto.dia, encomendas[index[i]].dataRegisto.mes, encomendas[index[i]].dataRegisto.ano, encomendas[index[i]].peso, encomendas[index[i]].destino);
+                    printf("\n%d \t %2d/%2d/%4d \t %.2f \t %s \t", encomendas[index[i]].numero, encomendas[index[i]].dataRegisto.dia, encomendas[index[i]].dataRegisto.mes, encomendas[index[i]].dataRegisto.ano, encomendas[index[i]].peso, encomendas[index[i]].destino);
                     switch(encomendas[index[i]].estado)
                     {
                     case 0:
@@ -566,11 +566,11 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
 
                     if(posicaoEncomendas==-1 && numero!=0)
                     {
-                        printf("\nO numero da encomenda indicado nao existem.");
+                        printf("\nO numero da encomenda indicado nao existe.");
                     }
                     else
                     {
-                        if(encomendas[posicaoEncomendas].estado==1 || encomendas[posicaoEncomendas].estado==2)
+                        if((encomendas[posicaoEncomendas].estado==1 && numero!=0) || (encomendas[posicaoEncomendas].estado==2 && numero!=0))
                         {
                             printf("\nA encomenda com o numero %d ja se encontra carregada ou entregue.", numero);
                         }
@@ -581,7 +581,7 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
 
                     if(percentagemCarga>=0.8)
                     {
-                        if(percentagemCarga>=1)
+                        if(percentagemCarga>1)
                         {
                             printf("\nA encomenda com o numero %d e demasido pesada para transportada pelo veiculo com a matricula %s", encomendas[posicaoVeiculo].numero, veiculos[posicaoEncomendas].matricula);
 
@@ -613,12 +613,18 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
                             {
                             case 'S':
                                 numero=0;
-                                veiculos[posicaoEncomendas].estado=1;
+                                veiculos[posicaoVeiculo].estado=1;
+                                encomendas[posicaoEncomendas].estado=1;
                                 printf("\nO veiculo com a matricula %s vai inicar viagem.", veiculos[posicaoVeiculo].matricula);
+                                veiculos[posicaoVeiculo].encomendas++;
+                                veiculos[posicaoVeiculo].viagens++;
+                                contadorEncomendas--;
                                 break;
                             case 'N':
                                 encomendas[posicaoEncomendas].estado=1;
                                 strcpy(encomendas[posicaoEncomendas].matricula, veiculos[posicaoVeiculo].matricula);
+                                veiculos[posicaoVeiculo].encomendas++;
+                                contadorEncomendas--;
                                 break;
                             }
                         }
@@ -626,11 +632,11 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
                     }
                     else
                     {
-                        encomendas[posicaoEncomendas].estado=1;
+                        encomendas[posicaoVeiculo].estado=1;
                         strcpy(encomendas[posicaoEncomendas].matricula, veiculos[posicaoVeiculo].matricula);
+                        veiculos[posicaoVeiculo].encomendas++;
+                        contadorEncomendas--;
                     }
-
-                    contadorEncomendas--;
 
                     if(contadorEncomendas==0)
                     {
@@ -648,6 +654,150 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
         else
         {
             printf("\nNao existem veiculos disponiveis");
+        }
+    }
+    else
+    {
+        printf("\nNao existem veiculos ou encomendas.");
+    }
+}
+
+void descarregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encomendas[], int nEncomendas)
+{
+    int posicaoVeiculo, posicaoEncomendas, contadorEncomendas=0, i, index[MAX_ENCOMENDAS], contadorVeiculos=-1, numero, contador=-1;;
+    char matricula[MATRICULA];
+    char str[MATRICULA] = {'\0'};
+    tipoData data;
+
+    if(nVeiculos!=0 && nEncomendas!=0)
+    {
+        for(i=0; i<nVeiculos; i++)
+        {
+            if(veiculos[i].estado==1)
+            {
+                contadorVeiculos++;
+            }
+        }
+
+        if(contadorVeiculos!=-1)
+        {
+            consultaVeiculosEstado(veiculos, nVeiculos, 1);
+
+            do
+            {
+                strcpy(matricula,lerMatricula("\nIndique o veiculo pela Matricula:", str));
+                posicaoVeiculo = procurarVeiculo(veiculos, nVeiculos, matricula);
+
+                if(posicaoVeiculo==-1)
+                {
+                    printf("\nO veiculo com a matricula %s nao existe.", matricula);
+                }
+
+            }
+            while (posicaoVeiculo==-1);
+
+            contadorEncomendas = contagemEncomendasEstadoMatricula(encomendas, nEncomendas, 0, matricula);
+
+            if(contadorEncomendas!=0)
+            {
+                data = lerData("Indique uma data:");
+                for(i=0; i<nEncomendas; i++)
+                {
+                    if(encomendas[i].estado == 1 && strcmp(encomendas[i].matricula,matricula)==0)
+                    {
+                        contador++;
+                        index[contador]=i;
+                    }
+                }
+
+                printf("\n------------- Encomendas -------------");
+                printf("\n Numero de Registo \t Data de registo \t Peso(Kg) \t Destino \t Estado \t Data de Entrega(Ou devolucao) \t Conjunto de Obrevacoes");
+
+                for(i=0; i<contadorEncomendas; i++)
+                {
+                    printf("\n%d \t %2d/%2d/%4d \t %.2f \t %s \t", encomendas[index[i]].numero, encomendas[index[i]].dataRegisto.dia, encomendas[index[i]].dataRegisto.mes, encomendas[index[i]].dataRegisto.ano, encomendas[index[i]].peso, encomendas[index[i]].destino);
+                    switch(encomendas[index[i]].estado)
+                    {
+                    case 0:
+                        printf("Registada");
+                        break;
+                    case 1:
+                        printf("Carregada");
+                        break;
+                    case 2:
+                        printf("Entregue");
+                        break;
+                    case 3:
+                        printf("Devolvida");
+                        break;
+                    }
+                    printf("\t %d/%d/%d \t %s", encomendas[index[i]].dataEntrega.dia, encomendas[index[i]].dataEntrega.mes, encomendas[index[i]].dataEntrega.ano, encomendas[index[i]].observacoes);
+                }
+
+                do
+                {
+                    numero = lerInteiro("\nInsira o numero da encomenda para entregar", 0, 0);
+
+                    posicaoEncomendas = procurarEncomendas(encomendas, nEncomendas, numero);
+
+                    if(posicaoEncomendas==-1 && numero!=0)
+                    {
+                        printf("\nO numero da encomenda indicado nao existem.");
+                    }
+                    else
+                    {
+                        encomendas[posicaoEncomendas].dataDevolucao=data;
+                        encomendas[posicaoEncomendas].estado=2;
+                        lerString("Indique a razao de devolocao:", encomendas[posicaoEncomendas].observacoes, OBSERVACOES);
+                        escreverFicheiroLog(encomendas[posicaoEncomendas]);
+                    }
+
+                    contadorEncomendas--;
+
+                    if(contadorEncomendas==0)
+                    {
+                        numero=0;
+                        printf("\nRegistou a ultima encomenda.");
+                    }
+                }
+                while(numero!=0);
+
+                do
+                {
+                    numero = lerInteiro("\nInsira o numero da encomenda para entregar", 0, 0);
+
+                    posicaoEncomendas = procurarEncomendas(encomendas, nEncomendas, numero);
+
+                    if(posicaoEncomendas==-1 && numero!=0)
+                    {
+                        printf("\nO numero da encomenda indicado nao existem.");
+                    }
+                    else
+                    {
+                        encomendas[posicaoEncomendas].dataDevolucao=data;
+                        encomendas[posicaoEncomendas].estado=3;
+
+                    }
+
+                    contadorEncomendas--;
+
+                    if(contadorEncomendas==0)
+                    {
+                        numero=0;
+                        printf("\nRegistou a ultima encomenda.");
+                    }
+                }
+                while(numero!=0);
+
+            }
+            else
+            {
+                printf("\nO veiculo com a matricula %s nao tem encomendas para descarregar", matricula);
+            }
+        }
+        else
+        {
+            printf("\nNao existem veiculos em transporte");
         }
     }
     else
@@ -699,7 +849,7 @@ void consultaVeiculosEstado(tipoVeiculo veiculos[], int nVeiculos, int estado)
                 break;
             }
 
-            printf("\t %f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
+            printf("\t %.2f \t %d \t\t %d \t\t %2d-%2d-%4d", veiculos[index[i]].carga, veiculos[index[i]].viagens, veiculos[index[i]].encomendas, veiculos[index[i]].dataFabrico.dia, veiculos[index[i]].dataFabrico.mes, veiculos[index[i]].dataFabrico.ano);
         }
     }
     else
