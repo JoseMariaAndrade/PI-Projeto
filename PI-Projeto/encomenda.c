@@ -1,12 +1,13 @@
 #include <stdio.h>
+#include <time.h>
 
 #include "encomenda.h"
 #include "funcoesAuxiliares.h"
 
-void adicionarEncomendas(tipoEncomenda encomenda[], int nEncomendas)
+void adicionarEncomendas(tipoEncomenda encomenda[], int *nEncomendas)
 {
     int restanteEncomendas, numero, i;
-    restanteEncomendas = MAX_ENCOMENDAS - nEncomendas;
+    restanteEncomendas = MAX_ENCOMENDAS - *nEncomendas;
 
     if (restanteEncomendas==0)
     {
@@ -18,7 +19,7 @@ void adicionarEncomendas(tipoEncomenda encomenda[], int nEncomendas)
 
         if(numero!=0)
         {
-            for (i=nEncomendas; i<numero; i++)
+            for (i=*nEncomendas; i<numero; i++)
             {
                 printf("\nInserir dados da encomenda:");
                 encomenda[i].numero = lerInteiro("\nNumero encomenda",0,0);
@@ -127,8 +128,9 @@ void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas)
     }
 }
 
-void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float * perEncomendasEntregues){
-    int somaPesos, contPositivas, i;
+void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues){
+    int contPositivas, i;
+    float somaPesos;
     somaPesos = 0;
     contPositivas = 0;
     if(nEncomendasRegistadas == 0){
@@ -158,4 +160,15 @@ void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendas
     }else{
         printf("\n Nao exitem encomendas registadas");
     }
+}
+
+void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[],tipoClone destinos[], int nEncomendas){
+    int i, invariavel;
+    data = lerData("\n Data: ");
+    for(i=0;i<nEncomendas;i++){
+        if(data = encomendas[i].dataEntrega){
+            invariavel++;
+        }
+    }
+    printf("\n Na data %d/%d/%d houve %d encomendas entregues", encomendas[i].dataEntrega.dia, encomendas[i].dataEntrega.mes, encomendas[i].dataEntrega.ano, invariavel);
 }

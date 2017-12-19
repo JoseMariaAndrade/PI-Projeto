@@ -441,4 +441,3 @@ void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int 
         }
     }
 }
-

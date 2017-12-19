@@ -8,10 +8,11 @@
 
 int main(void)
 {
+    tipoClone destinos[MAX_ENCOMENDAS];
     tipoVeiculo veiculos[MAX_VEICULOS];
     tipoEncomenda encomendas[MAX_ENCOMENDAS];
     int nVeiculos=0, nEncomendasRegistadas=0, nEcomendasDevolvidas=0, contSave=0;
-    float percEcomendasEntregues=0.0, mediaPesos = 0;
+    float percEcomendasEntregues=0.0, mediaPesos = 0, mediaCarga = 0;
     char opcao, opcao1;
 
     do
@@ -47,7 +48,7 @@ int main(void)
                 opcao = menuEcomendas();
                 switch(opcao){
                     case 'I':
-                        adicionarEncomendas(encomendas, nEncomendasRegistadas);
+                        adicionarEncomendas(encomendas, &nEncomendasRegistadas);
                         break;
                     case 'C':
                         break;
@@ -86,9 +87,13 @@ int main(void)
              calculos(encomendas, nEncomendasRegistadas, &mediaPesos, &percEcomendasEntregues);
              printf("\n Peso medio das encomendas: %.2f", mediaPesos);
              printf("\n Percentagem de encomendas entregues: %.2f", percEcomendasEntregues);
+             calculosVeiculos(veiculos, nVeiculos, &mediaCarga);
+             printf("\n Carga media dos veiculos: %.2f", mediaCarga);
+             mostrarVeiculosMenosViagens(veiculos, nVeiculos);
             break;
         case 'G':
-             //funcao save;
+             gravarFicheiroBinario(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);
+             gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);
              contSave++;
             break;
         case 'L':
@@ -99,7 +104,8 @@ int main(void)
                 opcao1 = menuSave();
                 switch(opcao1){
                     case 'S':
-                        //funcao save
+                        gravarFicheiroBinario(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);
+                        gravarFicheiroTexto(veiculos, encomendas, nVeiculos, nEncomendasRegistadas);
                         break;
                     case 'N':
                         break;

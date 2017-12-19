@@ -17,5 +17,6 @@ void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int
 void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas);
 void escreverFicheiroLog(tipoEncomenda encomenda);
 void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int *nVeiculos, int *nEncomendas);
+float lerFloat(char mensagem[MAX_CHARS], int minimo, int maximo);
 
 #endif // FUNCOESAUXILIARES_H_INCLUDED
