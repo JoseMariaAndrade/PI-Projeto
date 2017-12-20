@@ -100,7 +100,7 @@ strcpy(veiculos[3].matricula,"22-23-DD");
                 opcao = menuRegisto();
                 switch(opcao){
                     case 'C':
-                        carregarVeiculo(veiculos, nVeiculos, encomendas, nEncomendasRegistadas);
+                        carregarVeiculo(veiculos, nVeiculos, encomendas, &nEncomendasRegistadas);
                         break;
                     case 'D':
                         descarregarVeiculo(veiculos, nVeiculos, encomendas, nEncomendasRegistadas);

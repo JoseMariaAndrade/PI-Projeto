@@ -460,14 +460,14 @@ float PercentagemCargaVeiculo(float cargaVeiculo, float cargaTotal)
     return percentagemCarga;
 }
 
-void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encomendas[], int nEncomendas)
+void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encomendas[], int *nEncomendas)
 {
     int posicaoVeiculo, posicaoEncomendas, contadorEncomendas=0, i, index[MAX_ENCOMENDAS], contadorVeiculos=-1, numero, contador=-1;;
     float somaCarga=0, percentagemCarga=0;
     char matricula[MATRICULA], opcao;
     char str[MATRICULA] = {'\0'};
 
-    if(nVeiculos!=0 && nEncomendas!=0)
+    if(nVeiculos!=0 && *nEncomendas!=0)
     {
         for(i=0; i<nVeiculos; i++)
         {
@@ -519,13 +519,13 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
                 while (posicaoVeiculo==-1);
             }
 
-            contadorEncomendas = contagemEncomendasEstado(encomendas, nEncomendas, 0);
-            contadorEncomendas = contadorEncomendas + contagemEncomendasEstado(encomendas, nEncomendas, 3);
+            contadorEncomendas = contagemEncomendasEstado(encomendas, *nEncomendas, 0);
+            contadorEncomendas = contadorEncomendas + contagemEncomendasEstado(encomendas, *nEncomendas, 3);
 
             if(contadorEncomendas!=0)
             {
 
-                for(i=0; i<nEncomendas; i++)
+                for(i=0; i<*nEncomendas; i++)
                 {
                     if(encomendas[i].estado == 0 || encomendas[i].estado == 3)
                     {
@@ -562,7 +562,7 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
                 {
                     numero = lerInteiro("\nInsira o numero da encomenda", 0, 0);
 
-                    posicaoEncomendas = procurarEncomendas(encomendas, nEncomendas, numero);
+                    posicaoEncomendas = procurarEncomendas(encomendas, *nEncomendas, numero);
 
                     if(posicaoEncomendas==-1 && numero!=0)
                     {
@@ -583,7 +583,7 @@ void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encome
                     {
                         if(percentagemCarga>1)
                         {
-                            printf("\nA encomenda com o numero %d e demasido pesada para transportada pelo veiculo com a matricula %s", encomendas[posicaoVeiculo].numero, veiculos[posicaoEncomendas].matricula);
+                            printf("\nA encomenda com o numero %d e demasido pesada para transportada pelo veiculo com a matricula %s", encomendas[posicaoEncomendas].numero, veiculos[posicaoVeiculo].matricula);
 
                             somaCarga = somaCarga - encomendas[posicaoEncomendas].peso;
                             percentagemCarga = PercentagemCargaVeiculo(veiculos[posicaoVeiculo].carga, somaCarga);

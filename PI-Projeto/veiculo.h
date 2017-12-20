@@ -16,7 +16,7 @@ void registarInicioViagemVeiculo(tipoVeiculo veiculos[], int nVeiculos);
 void registarRegressoVeiculo(tipoVeiculo veiculos[], int nVeiculos);
 float cargaVeiculo(tipoVeiculo veiculo, float cargaTotal);
 int escolhaAutomatica(tipoVeiculo veiculos[], int nVeiculos);
-void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encomendas[], int nEncomendas);
+void carregarVeiculo(tipoVeiculo veiculos[], int nVeiculos, tipoEncomenda encomendas[], int *nEncomendas);
 void descarregarVeiculo(veiculos, nVeiculos, encomendas, nEncomendasRegistadas);
 void consultaVeiculosEstado(tipoVeiculo veiculos[], int nVeiculos, int estado);
 

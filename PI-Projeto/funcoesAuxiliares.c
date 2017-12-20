@@ -344,43 +344,41 @@ void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int
         }
 }
 
-void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas)
-{
-    FILE *file;
-    int i;
-    file = fopen("dados.dat","wb");
-    if(file == NULL)
-    {
-        printf("\nErro ao abrir o ficheiro.");
-    }
-    else
-    {
-        fprintf(file,"%d\n",nVeiculos);
-        fprintf(file,"%d\n",nEncomendas);
-        for(i=0; i<nVeiculos; i++)
-        {
-            fprintf(file,"%s\n",veiculos[i].matricula);
-            fprintf(file,"%d-%d-%d\n",veiculos[i].dataFabrico.dia,veiculos[i].dataFabrico.mes,veiculos[i].dataFabrico.ano);
-            fprintf(file,"%f\n",veiculos[i].carga);
-            fprintf(file,"%d\n",veiculos[i].viagens);
-            fprintf(file,"%d\n",veiculos[i].encomendas);
-        }
+void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas){
+    FILE* file;
+    int quantEncomendas, quantVeiculos;
 
-        for(i=0; i<nEncomendas; i++)
-        {
-            fprintf(file,"%d\n",encomendas[i].numero);
-            fprintf(file,"%f\n",encomendas[i].peso);
-            fprintf(file,"%d\n",encomendas[i].estado);
-            fprintf(file,"%s\n",encomendas[i].destino);
-            fprintf(file,"%d-%d-%d\n",encomendas[i].dataRegisto.dia,encomendas[i].dataRegisto.mes,encomendas[i].dataRegisto.ano);
-            fprintf(file,"%d-%d-%d\n",encomendas[i].dataEntrega.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano);
-            fprintf(file,"%d-%d-%d\n",encomendas[i].dataDevolucao.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano);
-            fprintf(file,"%s\n",encomendas[i].observacoes);
+    file = fopen("dados.dat","wb");
+    if(file == NULL){
+        perror("\n Erro ao abrir ficheiro para leitura");
+    }
+    else{
+        quantVeiculos = fwrite(&nVeiculos,sizeof(int),1,file);
+        if(quantVeiculos != 1){
+            printf("\nErro ao escrever o numero de veiculos");
+        }else{
+            quantVeiculos = fwrite(veiculos,sizeof(tipoVeiculo),nVeiculos,file);
+            if(quantVeiculos != nVeiculos){
+                printf("\nErro ao escrever os dados dos veiculos");
+            }else{
+                printf("\nDados dos veiculos guardados com sucesso");
+            }
+        }
+        quantEncomendas = fwrite(&nEncomendas,sizeof(int),1,file);
+        if(quantEncomendas != 1){
+            printf("\nErro ao escrever o numero de encomendas");
+        }else{
+            quantEncomendas = fwrite(encomendas,sizeof(tipoEncomenda),nEncomendas,file);
+            if(quantEncomendas != nEncomendas){
+                printf("\nErro ao escrever os dados das encomendas");
+            }else{
+                printf("\nDados das encomendas guardados com sucesso");
+            }
         }
     }
     if(fclose(file) == EOF){
-            perror("\n Erro ao fechar ficheiro");
-        }
+            perror("\n Erro ao fechar ficheiro ");
+    }
 }
 
 void escreverFicheiroLog(tipoEncomenda encomenda){
@@ -397,9 +395,9 @@ void escreverFicheiroLog(tipoEncomenda encomenda){
 }
 
 void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int *nVeiculos, int *nEncomendas){
-    int i;
     *nEncomendas = 0;
     *nVeiculos = 0;
+    int quantEncomendas, quantVeiculos;
 
     FILE* file;
     file = fopen("dados.dat","rb");
@@ -407,34 +405,33 @@ void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int 
         perror("\n Erro ao abrir ficheiro para leitura");
     }
     else{
-        fread(nVeiculos,sizeof(int),1,file);
-        fread(nEncomendas,sizeof(int),1,file);
-      /*  for(i=0; i<&(*nVeiculos); i++)
-        {
-            fread(veiculos,sizeof(tipoVeiculo),10,file);
-            fread(veiculos[i].matricula,sizeof(tipoVeiculo),10,file);
-            fread(veiculos[i].dataFabrico.dia,sizeof(tipoVeiculo),10,file);
-            fread(veiculos[i].dataFabrico.mes,sizeof(tipoVeiculo),10,file);
-            fread(veiculos[i].dataFabrico.ano,sizeof(tipoVeiculo),10,file);
-            fread(veiculos[i].carga,sizeof(tipoVeiculo),10,file);
-            fread(veiculos[i].viagens,sizeof(tipoVeiculo),10,file);
-            fread(veiculos[i].encomendas,sizeof(tipoVeiculo),10,file);
+        quantVeiculos = fread(&(*nVeiculos),sizeof(int),1,file);
+        if(quantVeiculos != 1){
+            printf("\nErro ao ler o numero de veiculos");
+            *nVeiculos = 0;
+        }else{
+            quantVeiculos = fread(veiculos,sizeof(tipoVeiculo),*nVeiculos,file);
+            if(quantVeiculos != *nVeiculos){
+                printf("\nErro ao ler dados dos veiculos");
+            }else{
+                printf("\nDados dos veiculos carregados com succeso");
+            }
         }
-
-        for(i=0; i<nEncomendas; i++)
-        {
-            fread(encomendas,sizeof(tipoEncomenda),100,file);
-            fread(encomendas[i].numero,sizeof(tipoEncomenda),100,file);
-            fread(encomendas[i].peso,sizeof(tipoEncomenda),100,file);
-            fread(encomendas[i].estado,sizeof(tipoEncomenda),100,file);
-            fread(encomendas[i].destino,sizeof(tipoEncomenda),100,file);
-            fread(encomendas[i].dataRegisto.dia,encomendas[i].dataRegisto.mes,encomendas[i].dataRegisto.ano,sizeof(tipoEncomenda),100,file);
-            fread(encomendas[i].dataEntrega.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano,sizeof(tipoEncomenda),100,file);
-            fread(encomendas[i].dataDevolucao.dia,encomendas[i].dataEntrega.mes,encomendas[i].dataEntrega.ano,sizeof(tipoEncomenda),100,file);
-            fread(encomendas[i].observacoes,sizeof(tipoEncomenda),100,file);
-        }*/
+        quantEncomendas = fread(&(*nEncomendas),sizeof(int),1,file);
+        if(quantEncomendas != 1){
+            printf("\nErro ao ler o numero de encomendas");
+            *nEncomendas = 0;
+        }else{
+            quantEncomendas = fread(encomendas,sizeof(tipoEncomenda),*nEncomendas,file);
+            if(quantEncomendas != *nEncomendas){
+                printf("\nErro ao ler dados das encomendas");
+            }else{
+                printf("\nDados das encomendas carregadas com succeso");
+            }
+        }
     }
     if(fclose(file) == EOF){
             perror("\n Erro ao fechar ficheiro ");
     }
 }
+
