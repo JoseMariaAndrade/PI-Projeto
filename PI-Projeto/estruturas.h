@@ -6,6 +6,12 @@
 #define MATRICULA 9
 #define DESTINO 50
 #define OBSERVACOES 100
+#define MAX_PESO 1000000
+#define MIN_PESO 1
+#define MAX_CARGA 1000000
+#define MIN_CARGA 1
+#define MIN_ENCOMENDA 1
+#define MAX_ENCOMENDA 9999
 
  typedef enum
 {

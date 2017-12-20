@@ -17,7 +17,7 @@ int lerInteiro(char mensagem[MAX_CHARS], int numeroMinimo, int numeroMaximo)
 
             if (controlo == 0)
             {
-                printf("\nNumero invalido.");
+                printf("\nNumero invalido.\n");
             }
         }
         while (controlo==0);
@@ -33,7 +33,7 @@ int lerInteiro(char mensagem[MAX_CHARS], int numeroMinimo, int numeroMaximo)
 
             if (numero<numeroMinimo || numero>numeroMaximo || controlo == 0)
             {
-                printf("\nNumero invalido.");
+                printf("\nNumero invalido.\n");
             }
         }
         while (numero<numeroMinimo || numero>numeroMaximo || controlo==0);
@@ -42,18 +42,22 @@ int lerInteiro(char mensagem[MAX_CHARS], int numeroMinimo, int numeroMaximo)
     return numero;
 }
 
-float lerFloat(char mensagem[MAX_CHARS], int minimo, int maximo){
+float lerFloat(char mensagem[MAX_CHARS], int minimo, int maximo)
+{
     int controlo;
     float numero;
 
-    do{
+    do
+    {
         printf("%s (%d - %d)", mensagem, minimo,maximo);
         controlo = scanf("%f", &numero);
         limparBufferStdin();
-        if(numero<minimo || numero>maximo || controlo==0){
+        if(numero<minimo || numero>maximo || controlo==0)
+        {
             printf("\n Numero invalido");
         }
-    }while(numero<minimo || numero>maximo || controlo ==0);
+    }
+    while(numero<minimo || numero>maximo || controlo ==0);
 
     return numero;
 }
@@ -64,7 +68,7 @@ void lerString(char mensagem[MAX_CHARS], char vetorChars[50], int maximoCaracter
     int tamanho;
     do
     {
-        printf("%s", mensagem); //puts(mensagem)
+        printf("%s", mensagem);
         fgets(vetorChars, maximoCaracteres, stdin);
 
         tamanho = strlen(vetorChars);
@@ -339,99 +343,138 @@ void gravarFicheiroTexto(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int
             fprintf(file,"%s\n",encomendas[i].observacoes);
         }
     }
-    if(fclose(file) == EOF){
-            perror("\n Erro ao fechar ficheiro");
-        }
+    if(fclose(file) == EOF)
+    {
+        perror("\n Erro ao fechar ficheiro");
+    }
 }
 
-void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas){
+void gravarFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int nVeiculos, int nEncomendas)
+{
     FILE* file;
     int quantEncomendas, quantVeiculos;
 
     file = fopen("dados.dat","wb");
-    if(file == NULL){
+    if(file == NULL)
+    {
         perror("\n Erro ao abrir ficheiro para leitura");
     }
-    else{
+    else
+    {
         quantVeiculos = fwrite(&nVeiculos,sizeof(int),1,file);
-        if(quantVeiculos != 1){
+        if(quantVeiculos != 1)
+        {
             printf("\nErro ao escrever o numero de veiculos");
-        }else{
+        }
+        else
+        {
             quantVeiculos = fwrite(veiculos,sizeof(tipoVeiculo),nVeiculos,file);
-            if(quantVeiculos != nVeiculos){
+            if(quantVeiculos != nVeiculos)
+            {
                 printf("\nErro ao escrever os dados dos veiculos");
-            }else{
+            }
+            else
+            {
                 printf("\nDados dos veiculos guardados com sucesso");
             }
         }
         quantEncomendas = fwrite(&nEncomendas,sizeof(int),1,file);
-        if(quantEncomendas != 1){
+        if(quantEncomendas != 1)
+        {
             printf("\nErro ao escrever o numero de encomendas");
-        }else{
+        }
+        else
+        {
             quantEncomendas = fwrite(encomendas,sizeof(tipoEncomenda),nEncomendas,file);
-            if(quantEncomendas != nEncomendas){
+            if(quantEncomendas != nEncomendas)
+            {
                 printf("\nErro ao escrever os dados das encomendas");
-            }else{
+            }
+            else
+            {
                 printf("\nDados das encomendas guardados com sucesso");
             }
         }
     }
-    if(fclose(file) == EOF){
-            perror("\n Erro ao fechar ficheiro ");
+    if(fclose(file) == EOF)
+    {
+        perror("\n Erro ao fechar ficheiro ");
     }
 }
 
-void escreverFicheiroLog(tipoEncomenda encomenda){
+void escreverFicheiroLog(tipoEncomenda encomenda)
+{
     FILE *file;
     file = fopen("log.txt", "a");
-    if(file == NULL){
+    if(file == NULL)
+    {
         perror("\n Erro ao abrir ficheiro log.");
-    }else{
+    }
+    else
+    {
         fprintf(file, "\n\t%d\t%s\t %d/%d/%d\t%s", encomenda.numero, encomenda.destino, encomenda.dataDevolucao.dia, encomenda.dataDevolucao.mes, encomenda.dataDevolucao.ano, encomenda.matricula);
         fprintf(file, "\nCausa da devolução:%s", encomenda.observacoes);
-    }if(fclose(file) == EOF){
-            perror("\n Erro ao fechar ficheiro");
-        }
+    }
+    if(fclose(file) == EOF)
+    {
+        perror("\n Erro ao fechar ficheiro");
+    }
 }
 
-void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int *nVeiculos, int *nEncomendas){
+void lerFicheiroBinario(tipoVeiculo veiculos[], tipoEncomenda encomendas[], int *nVeiculos, int *nEncomendas)
+{
     *nEncomendas = 0;
     *nVeiculos = 0;
     int quantEncomendas, quantVeiculos;
 
     FILE* file;
     file = fopen("dados.dat","rb");
-    if(file == NULL){
+    if(file == NULL)
+    {
         perror("\n Erro ao abrir ficheiro para leitura");
     }
-    else{
+    else
+    {
         quantVeiculos = fread(&(*nVeiculos),sizeof(int),1,file);
-        if(quantVeiculos != 1){
+        if(quantVeiculos != 1)
+        {
             printf("\nErro ao ler o numero de veiculos");
             *nVeiculos = 0;
-        }else{
+        }
+        else
+        {
             quantVeiculos = fread(veiculos,sizeof(tipoVeiculo),*nVeiculos,file);
-            if(quantVeiculos != *nVeiculos){
+            if(quantVeiculos != *nVeiculos)
+            {
                 printf("\nErro ao ler dados dos veiculos");
-            }else{
+            }
+            else
+            {
                 printf("\nDados dos veiculos carregados com succeso");
             }
         }
         quantEncomendas = fread(&(*nEncomendas),sizeof(int),1,file);
-        if(quantEncomendas != 1){
+        if(quantEncomendas != 1)
+        {
             printf("\nErro ao ler o numero de encomendas");
             *nEncomendas = 0;
-        }else{
+        }
+        else
+        {
             quantEncomendas = fread(encomendas,sizeof(tipoEncomenda),*nEncomendas,file);
-            if(quantEncomendas != *nEncomendas){
+            if(quantEncomendas != *nEncomendas)
+            {
                 printf("\nErro ao ler dados das encomendas");
-            }else{
+            }
+            else
+            {
                 printf("\nDados das encomendas carregadas com succeso");
             }
         }
     }
-    if(fclose(file) == EOF){
-            perror("\n Erro ao fechar ficheiro ");
+    if(fclose(file) == EOF)
+    {
+        perror("\n Erro ao fechar ficheiro ");
     }
 }
 

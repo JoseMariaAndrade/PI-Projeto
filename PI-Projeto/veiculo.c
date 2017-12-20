@@ -26,7 +26,7 @@ void adicionarVeiculos(tipoVeiculo veiculo[], int *nVeiculos)
             for (i=0; i<numero; i++)
             {
                 printf("\nInserir dados do veiculo:");
-                veiculo[*nVeiculos].carga=lerInteiro("\nCarga",10, 10000000);
+                veiculo[*nVeiculos].carga=lerInteiro("\nCarga", MIN_CARGA, MAX_CARGA);
                 veiculo[*nVeiculos].viagens=0;
                 veiculo[*nVeiculos].encomendas=0;
                 veiculo[*nVeiculos].dataFabrico=lerData("\nInserir Data de Fabrico do veiculo:");
@@ -283,7 +283,7 @@ void mostarVeiculoEncomenda (tipoVeiculo veiculos[], tipoEncomenda encomendas[],
     {
         do
         {
-            numeroEncomenda = lerInteiro("Numero de Encomenda:",0,100);
+            numeroEncomenda = lerInteiro("Numero de Encomenda:", MIN_ENCOMENDA, MAX_ENCOMENDA);
             posicao = procurarEncomendas(encomendas, nEncomendas, numeroEncomenda);
 
             if(posicao==-1)
