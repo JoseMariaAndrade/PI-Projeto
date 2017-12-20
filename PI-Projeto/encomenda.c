@@ -27,7 +27,7 @@ void adicionarEncomendas(tipoEncomenda encomenda[], int *nEncomendas)
                 encomenda[i].numero = lerInteiro("\nNumero encomenda",0,0);
                 encomenda[i].peso = lerFloat("\nPeso da encomenda:",0,1000);
                 encomenda[i].estado = lerEstado('E');
-                encomenda[i].dataRegisto = lerData("\nData de registo:");
+                encomenda[i].dataRegisto = lerData("\nData de registo: ");
                 (*nEncomendas)++;
             }
         }
@@ -165,11 +165,10 @@ void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendas
     if(nEncomendasRegistadas > 0)
     {
         printf("\n------------- Encomendas -------------");
-        printf("\n Numero de Registo \t Data de registo \t Peso(Kg) \t Destino \t Estado \t Data de Entrega(Ou devolucao) \t Conjunto de Obrevacoes");
+        printf("\n Numero de Registo \t Data de registo \t Peso(Kg) \t Destino \t Estado \t Data de Entrega(Ou devolucao) \t Conjunto de observacoes");
         for(i=0; i<nEncomendasRegistadas; i++)
         {
-            printf("\n %d\t\t\t %2d/%2d/%4d \t\t %.2f  %s \t\t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
-            printf("\n%d \t %2d/%2d/%4d \t %.2f \t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
+            printf("\n%d \t\t\t %2d/%2d/%4d \t\t %.1f \t\t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
             switch(encomendas[i].estado)
             {
             case 0:
