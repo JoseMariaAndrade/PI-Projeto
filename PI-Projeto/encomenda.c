@@ -24,10 +24,21 @@ void adicionarEncomendas(tipoEncomenda encomenda[], int *nEncomendas)
             for (i=*nEncomendas; i<numero; i++)
             {
                 printf("\nInserir dados da encomenda:");
-                encomenda[i].numero = lerInteiro("\nNumero encomenda",0,0);
-                encomenda[i].peso = lerFloat("\nPeso da encomenda:",0,1000);
+                encomenda[i].numero = lerInteiro("\nNumero encomenda", MIN_ENCOMENDA, MAX_ENCOMENDA);
+                encomenda[i].peso = lerFloat("\nPeso da encomenda:", MIN_CARGA, MAX_CARGA);
                 encomenda[i].estado = lerEstado('E');
+<<<<<<< HEAD
                 encomenda[i].dataRegisto = lerData("\nData de registo: ");
+=======
+                encomenda[i].dataRegisto = lerData("\nData de registo:");
+                lerString("Indique o destino:", encomenda[i].destino, DESTINO);
+                encomenda[i].dataEntrega.ano=0;
+                encomenda[i].dataEntrega.mes=0;
+                encomenda[i].dataEntrega.dia=0;
+                encomenda[i].dataDevolucao.ano=0;
+                encomenda[i].dataDevolucao.mes=0;
+                encomenda[i].dataDevolucao.dia=0;
+>>>>>>> 0e4dbbafb1579d8177041be2693a3b3a9835061f
                 (*nEncomendas)++;
             }
         }
@@ -68,7 +79,7 @@ void eliminarEncomeda(tipoEncomenda encomendas[], int *nEncomendas)
     {
         do
         {
-            numeroEncomenda = lerInteiro("Numero de Encomenda:",0,100);
+            numeroEncomenda = lerInteiro("Numero de Encomenda:", MIN_ENCOMENDA, MAX_ENCOMENDA);
             posicao = procurarEncomendas(encomendas, *nEncomendas, numeroEncomenda);
 
             if(posicao==-1)
@@ -106,7 +117,7 @@ void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas)
     {
         do
         {
-            numeroEncomenda = lerInteiro("Numero de Encomenda:",0,100);
+            numeroEncomenda = lerInteiro("Numero de Encomenda:", MIN_ENCOMENDA, MAX_ENCOMENDA);
             posicao = procurarEncomendas(encomendas, *nEncomendas, numeroEncomenda);
 
             if(posicao==-1)
@@ -132,30 +143,32 @@ void alterarDestino(tipoEncomenda encomendas[], int *nEncomendas)
     }
 }
 
-/*void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float * perEncomendasEntregues)
+
+void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues)
 {
-    int somaPesos, contPositivas, i;
-    void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues)*/
-void calculos(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendasRegistadas, float *mediaPesos, float *perEncomendasEntregues){
     int contPositivas, i;
     float somaPesos;
     somaPesos = 0;
     contPositivas = 0;
-    if(nEncomendasRegistadas == 0){
-            printf("\nNao existem encomendas registadas");
-            *mediaPesos = 0.0;
-            *perEncomendasEntregues = 0.0;
-    }else
+    if(nEncomendasRegistadas == 0)
     {
-        for(i=0; i<nEncomendasRegistadas; i++){
+        printf("\nNao existem encomendas registadas");
+        *mediaPesos = 0.0;
+        *perEncomendasEntregues = 0.0;
+    }
+    else
+    {
+        for(i=0; i<nEncomendasRegistadas; i++)
+        {
             somaPesos = somaPesos + encomendas[i].peso;
-                if(encomendas[i].estado == 2){
-                    contPositivas++;
-                }
+            if(encomendas[i].estado == 2)
+            {
+                contPositivas++;
             }
-            *mediaPesos = (float) somaPesos / nEncomendasRegistadas;
-            *perEncomendasEntregues = contPositivas * 100.0 / nEncomendasRegistadas;
         }
+        *mediaPesos = (float) somaPesos / nEncomendasRegistadas;
+        *perEncomendasEntregues = contPositivas * 100.0 / nEncomendasRegistadas;
+    }
 
 }
 
@@ -168,7 +181,11 @@ void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendas
         printf("\n Numero de Registo \t Data de registo \t Peso(Kg) \t Destino \t Estado \t Data de Entrega(Ou devolucao) \t Conjunto de observacoes");
         for(i=0; i<nEncomendasRegistadas; i++)
         {
+<<<<<<< HEAD
             printf("\n%d \t\t\t %2d/%2d/%4d \t\t %.1f \t\t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
+=======
+            printf("\n%d \t %2d/%2d/%4d \t %.2f \t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
+>>>>>>> 0e4dbbafb1579d8177041be2693a3b3a9835061f
             switch(encomendas[i].estado)
             {
             case 0:
@@ -203,7 +220,7 @@ void consultaEncomendas(tipoEncomenda encomendas[], int nEncomendas, char tipoPe
         switch(tipoPesquisa)
         {
         case 'N':
-            numero = lerInteiro("Indique o numero da encomeda:", 1, 10000);
+            numero = lerInteiro("Indique o numero da encomeda:", MIN_ENCOMENDA, MAX_ENCOMENDA);
 
             for(i=0; i<nEncomendas; i++)
             {
@@ -403,53 +420,69 @@ int contagemEncomendasEstadoMatricula(tipoEncomenda encomendas[], int nEncomenda
     return contadorEncomendas;
 }
 
-void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[], int nEncomendas){
+void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[], int nEncomendas)
+{
     int i, invariavel;
     tipoData data = lerData("\n Data: ");
-    for(i=0;i<nEncomendas;i++){
-        if(data.dia == encomendas[i].dataEntrega.dia && data.mes == encomendas[i].dataEntrega.mes && data.ano == encomendas[i].dataEntrega.ano){
+    for(i=0; i<nEncomendas; i++)
+    {
+        if(data.dia == encomendas[i].dataEntrega.dia && data.mes == encomendas[i].dataEntrega.mes && data.ano == encomendas[i].dataEntrega.ano)
+        {
             invariavel++;
         }
     }
     printf("\n Na data %d/%d/%d houve %d encomendas entregues", encomendas[i].dataEntrega.dia, encomendas[i].dataEntrega.mes, encomendas[i].dataEntrega.ano, invariavel);
 }
 
-void maiorDestino(tipoEncomenda encomendas[], int nEncomendas){
+void maiorDestino(tipoEncomenda encomendas[], int nEncomendas)
+{
     int maxDestino = 0, i, j, contDestinos = 0, cont;
     char destinos[100][DESTINO];
-    for(i = 0;i<nEncomendas;i++){
+    for(i = 0; i<nEncomendas; i++)
+    {
         cont = 0;
-        for(j = 0;j<nEncomendas;j++){
-            if(strcmp(encomendas[i].destino, encomendas[j].destino) == 0){
+        for(j = 0; j<nEncomendas; j++)
+        {
+            if(strcmp(encomendas[i].destino, encomendas[j].destino) == 0)
+            {
                 cont++;
             }
         }
-        if(cont > maxDestino){
+        if(cont > maxDestino)
+        {
             maxDestino = cont;
         }
     }
-    for(i = 0;i<nEncomendas;i++){
+    for(i = 0; i<nEncomendas; i++)
+    {
         cont = 0;
-        for(j = 0;j<nEncomendas;j++){
-            if(strcmp(encomendas[i].destino, encomendas[j].destino) == 0){
+        for(j = 0; j<nEncomendas; j++)
+        {
+            if(strcmp(encomendas[i].destino, encomendas[j].destino) == 0)
+            {
                 cont++;
             }
         }
-        if(cont == maxDestino){
+        if(cont == maxDestino)
+        {
             int existeDestino = 1;
-            for(j=0;j<contDestinos;j++){
-                if(strcmp(encomendas[i].destino, encomendas[j].destino) == 0){
+            for(j=0; j<contDestinos; j++)
+            {
+                if(strcmp(encomendas[i].destino, encomendas[j].destino) == 0)
+                {
                     existeDestino = 0;
                     break;
                 }
             }
-            if(existeDestino){
+            if(existeDestino)
+            {
                 strcpy(destinos[contDestinos], encomendas[i].destino);
             }
         }
     }
     printf("\nO(s) destino(s) com maior encomendas entregues e: ");
-    for(j=0;j<contDestinos;j++){
+    for(j=0; j<contDestinos; j++)
+    {
         printf("\n %s", destinos[j]);
     }
 }
