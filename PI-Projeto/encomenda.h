@@ -14,5 +14,6 @@ int contagemEncomendasEstadoMatricula(tipoEncomenda encomendas[], int nEncomenda
 int contagemEncomendasEstado(tipoEncomenda encomendas[], int nEncomendas, int estado);
 void maiorDestino(tipoEncomenda encomendas[], int nEncomendas);
 void mostrarQuantidadeEncomendasData(tipoEncomenda encomendas[], int nEncomendas);
+void consultaEncomendas(tipoEncomenda encomendas[], int nEncomendas);
 
 #endif // ENCOMENDA_H_INCLUDED

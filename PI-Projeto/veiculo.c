@@ -836,16 +836,16 @@ void consultaVeiculosEstado(tipoVeiculo veiculos[], int nVeiculos, int estado)
             switch(veiculos[index[i]].estado)
             {
             case 0:
-                printf("\t\t Disponivel ");
+                printf("\t Disponivel ");
                 break;
             case 1:
-                printf("\t\t A Transportar ");
+                printf("\t A Transportar ");
                 break;
             case 2:
-                printf("\t\t Regresso ");
+                printf("\t Regresso ");
                 break;
             case 3:
-                printf("\t\t Avariado ");
+                printf("\t Avariado ");
                 break;
             }
 
