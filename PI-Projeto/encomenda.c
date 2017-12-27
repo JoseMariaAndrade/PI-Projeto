@@ -177,7 +177,11 @@ void mostrarEncomendas(tipoEncomenda encomendas[MAX_ENCOMENDAS], int nEncomendas
         printf("\n Numero de Registo \t Data de registo \tPeso(Kg) \tDestino \t Estado \t Data de Entrega(Ou devolucao) \t Conjunto de observacoes");
         for(i=0; i<nEncomendasRegistadas; i++)
         {
+<<<<<<< HEAD
             printf("\n%d \t\t\t %2d/%2d/%4d \t\t%.1f  \t\t%s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
+=======
+            printf("\n%d \t %2d/%2d/%4d \t %.2f \t %s \t", encomendas[i].numero, encomendas[i].dataRegisto.dia, encomendas[i].dataRegisto.mes, encomendas[i].dataRegisto.ano, encomendas[i].peso, encomendas[i].destino);
+>>>>>>> b6a9adec1906296dae923179942e06c4249d33d5
             switch(encomendas[i].estado)
             {
             case 0:
